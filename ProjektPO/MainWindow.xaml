@@ -6,8 +6,5 @@
         xmlns:local="clr-namespace:ProjektPO"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="23" Margin="293,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="203,66,0,0" Click="button1_Click"/>
-    </Grid>
+    <Grid/>
 </Window>

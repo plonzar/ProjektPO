@@ -8,7 +8,13 @@ namespace ProjektPO.Model
 {
     public class DbManager //Klasa, która jest dostępem do bazy danych i zawiera metody, które są uniwersalne (dodawanie, usuwanie, edycja) i się powtarzają
     {
-        private ApplicationDB context = new ApplicationDB();
+        public DbManager(ApplicationDB appDb)
+        {
+            context = appDb;
+        }
+
+
+        private ApplicationDB context;
 
         public IEnumerable<Category> categories
         {
