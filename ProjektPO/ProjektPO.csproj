@@ -70,6 +70,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\CategoryItemViewModel.cs" />
+    <Compile Include="ViewModels\OperationViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,21 +93,20 @@
       <DependentUpon>201801241559225_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\Abstract\ICategoryModel.cs" />
-    <Compile Include="Model\Abstract\IOperationModel.cs" />
-    <Compile Include="Model\Abstract\IStatisticsModel.cs" />
-    <Compile Include="Model\Abstract\IUserModel.cs" />
-    <Compile Include="Model\ApplicationDB.cs" />
-    <Compile Include="Model\Category.cs" />
-    <Compile Include="Model\CategoryItem.cs" />
-    <Compile Include="Model\CategoryModel.cs" />
-    <Compile Include="Model\DbManager.cs" />
-    <Compile Include="Model\Operation.cs" />
-    <Compile Include="Model\OperationModel.cs" />
-    <Compile Include="Model\StatisticsModel.cs" />
-    <Compile Include="Model\User.cs" />
-    <Compile Include="Model\UserModel.cs" />
-    <Compile Include="Model\ViewModel.cs" />
+    <Compile Include="Abstract\ICategoryModel.cs" />
+    <Compile Include="Abstract\IOperationModel.cs" />
+    <Compile Include="Abstract\IStatisticsModel.cs" />
+    <Compile Include="Abstract\IUserModel.cs" />
+    <Compile Include="Entity\ApplicationDB.cs" />
+    <Compile Include="Entity\CategoryEntity.cs" />
+    <Compile Include="Entity\CategoryItemEntity.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Entity\OperationEntity.cs" />
+    <Compile Include="Models\OperationModel.cs" />
+    <Compile Include="Models\StatisticsModel.cs" />
+    <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -137,7 +140,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -25,4 +25,3 @@ D:\ProjektPO\projekt\ProjektPO\ProjektPO\bin\Debug\Microsoft.VisualStudio.TestPl
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO_Content.g.cs
-D:\ProjektPO\Projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.csprojResolveAssemblyReference.cache
