@@ -89,6 +89,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Entity\Entity.cs" />
+    <Compile Include="Enums\Months.cs" />
+    <Compile Include="Enums\OperationType.cs" />
+    <Compile Include="Migrations\201801272142589_initial.cs" />
+    <Compile Include="Migrations\201801272142589_initial.Designer.cs">
+      <DependentUpon>201801272142589_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801272144264_second.cs" />
+    <Compile Include="Migrations\201801272144264_second.Designer.cs">
+      <DependentUpon>201801272144264_second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801272158059_third.cs" />
+    <Compile Include="Migrations\201801272158059_third.Designer.cs">
+      <DependentUpon>201801272158059_third.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801272216507_fourth.cs" />
+    <Compile Include="Migrations\201801272216507_fourth.Designer.cs">
+      <DependentUpon>201801272216507_fourth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801272333569_poprawaLiterowek.cs" />
+    <Compile Include="Migrations\201801272333569_poprawaLiterowek.Designer.cs">
+      <DependentUpon>201801272333569_poprawaLiterowek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Abstract\IEstimatesModel.cs" />
     <Compile Include="HelperClasses\DiagramItem.cs" />
     <Compile Include="HelperClasses\EstimatedOutcomeIncome.cs" />
@@ -112,11 +136,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201801241559225_initial.cs" />
-    <Compile Include="Migrations\201801241559225_initial.Designer.cs">
-      <DependentUpon>201801241559225_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Abstract\ICategoryModel.cs" />
     <Compile Include="Abstract\IOperationModel.cs" />
     <Compile Include="Abstract\IStatisticsModel.cs" />
@@ -143,8 +162,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201801241559225_initial.resx">
-      <DependentUpon>201801241559225_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801272142589_initial.resx">
+      <DependentUpon>201801272142589_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801272144264_second.resx">
+      <DependentUpon>201801272144264_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801272158059_third.resx">
+      <DependentUpon>201801272158059_third.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801272216507_fourth.resx">
+      <DependentUpon>201801272216507_fourth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801272333569_poprawaLiterowek.resx">
+      <DependentUpon>201801272333569_poprawaLiterowek.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

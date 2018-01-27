@@ -1,5 +1,7 @@
-﻿using ProjektPO.HelperClasses;
-using ProjektPO.Model;
+﻿using ProjektPO.Entity;
+using ProjektPO.Enums;
+using ProjektPO.HelperClasses;
+using ProjektPO.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +24,8 @@ namespace ProjektPO.Models
         {
             EstimatedOutcomeIncome result = new EstimatedOutcomeIncome();
 
-            var incomesToEstimate = _context.Operations.Where(x => x.Type == OperationType.Income && x.OperationCategory != null).ToList();
-            //var incomesToEstimate = _context.Operations.Where(x => x.Type == OperationType.Income && x.Category.IncludeInEstimates).ToList();
-            var outcomesToEstimate = _context.Operations.Where(x => x.Type == OperationType.Outcome && x.Category.IncludeInEstimates).ToList();
+            var incomesToEstimate = _context.Operations.Where(x => x.Type == OperationType.Income && x.CategoryItem.IncludeInEstimates).ToList();
+            var outcomesToEstimate = _context.Operations.Where(x => x.Type == OperationType.Outcome && x.CategoryItem.IncludeInEstimates).ToList();
 
             var orderedIncomes = incomesToEstimate.OrderBy(x => x.Date);
             if(orderedIncomes.Count() == 0)

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektPO.Model
+namespace ProjektPO.Entity
 {
     public class UserEntity
     {

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ProjektPO.HelperClasses;
 
-namespace ProjektPO.Model.Abstract
+namespace ProjektPO.Abstract
 {
     public interface IStatisticsModel
     {
@@ -14,6 +11,6 @@ namespace ProjektPO.Model.Abstract
         List<Point> GetLinearProfit(DateTime dateFrom, DateTime dateTo, int categoryId);
         List<DiagramItem> GetIncomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId);
         List<DiagramItem> GetOutcomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId);
-     //   List<DiagramItem> GetPercentageProfit(DateTime dateFrom, DateTime dateTo, int categoryId);
+
     }
 }

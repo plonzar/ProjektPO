@@ -1,13 +1,14 @@
-﻿using System;
+﻿using ProjektPO.Entity;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektPO.Model
+namespace ProjektPO.Entity
 {
-    public class ApplicationDB: DbContext
+    public class ApplicationDB : DbContext
     {
         public DbSet<CategoryItemEntity> CategoryItems { get; set; }
         public DbSet<OperationEntity> Operations { get; set; }

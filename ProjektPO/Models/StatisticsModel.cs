@@ -1,13 +1,15 @@
 ﻿using ProjektPO.HelperClasses;
-using ProjektPO.Model.Abstract;
+using ProjektPO.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjektPO.Abstract;
+using ProjektPO.Enums;
 
-namespace ProjektPO.Model
+namespace ProjektPO.Models
 {
     public class StatisticsModel: IStatisticsModel
     {
@@ -24,7 +26,7 @@ namespace ProjektPO.Model
                                                .AsNoTracking()
                                                .Where(x => x.Date > dateFrom.Date
                                                && x.Date < dateTo.Date
-                                               && x.Category.CategoryId == categoryId
+                                               && x.CategoryItem.CategoryEntityId == categoryId
                                                && x.Type == OperationType.Income)
                                                .ToList();
 
@@ -43,7 +45,7 @@ namespace ProjektPO.Model
                                                .AsNoTracking()
                                                .Where(x => x.Date >= dateFrom
                                                && x.Date <= dateTo
-                                               && x.Category.CategoryId == categoryId 
+                                               && x.CategoryItem.CategoryEntityId == categoryId 
                                                && x.Type == OperationType.Outcome)
                                                .ToList();
 
@@ -62,7 +64,7 @@ namespace ProjektPO.Model
                                    .AsNoTracking()
                                    .Where(x => x.Date >= dateFrom.Date
                                    && x.Date <= dateTo.Date
-                                   && x.Category.CategoryId == categoryId
+                                   && x.CategoryItem.CategoryEntityId == categoryId
                                    && x.Type == OperationType.Income)
                                    .ToList();
 
@@ -70,7 +72,7 @@ namespace ProjektPO.Model
                                    .AsNoTracking()
                                    .Where(x => x.Date >= dateFrom.Date
                                    && x.Date <= dateTo.Date
-                                   && x.Category.CategoryId == categoryId
+                                   && x.CategoryItem.CategoryEntityId == categoryId
                                    && x.Type == OperationType.Outcome)
                                    .ToList();
 
@@ -94,7 +96,7 @@ namespace ProjektPO.Model
                                             .AsNoTracking()
                                             .Where(x => x.Date > dateFrom.Date
                                             && x.Date < dateTo.Date
-                                            && x.Category.CategoryId == categoryId
+                                            && x.CategoryItem.CategoryEntityId == categoryId
                                             && x.Type == OperationType.Income)
                                             .ToList();
 
@@ -104,7 +106,7 @@ namespace ProjektPO.Model
             foreach (var item in grouped)
             {
                 result.Add(new DiagramItem{
-                  Label = item.FirstOrDefault().Category.Name,
+                  Label = item.FirstOrDefault().CategoryItem.Name,
                   Value = item.Sum(x => x.Amount)
                 });
             }
@@ -117,7 +119,7 @@ namespace ProjektPO.Model
                                           .AsNoTracking()
                                           .Where(x => x.Date > dateFrom.Date
                                           && x.Date < dateTo.Date
-                                          && x.Category.CategoryId == categoryId
+                                          && x.CategoryItem.CategoryEntityId == categoryId
                                           && x.Type == OperationType.Outcome)
                                           .ToList();
 
@@ -128,7 +130,7 @@ namespace ProjektPO.Model
             {
                 result.Add(new DiagramItem
                 {
-                    Label = item.FirstOrDefault().Category.Name,
+                    Label = item.FirstOrDefault().CategoryItem.Name,
                     Value = item.Sum(x => x.Amount)
                 });
             }
@@ -136,40 +138,6 @@ namespace ProjektPO.Model
             return result;
 
         }
-
-        //public List<DiagramItem> GetPercentageProfit(DateTime dateFrom, DateTime dateTo, int categoryId)
-        //{
-        //    List<OperationEntity> income = _context.Operations
-        //                                  .AsNoTracking()
-        //                                  .Where(x => x.Date > dateFrom.Date
-        //                                  && x.Date < dateTo.Date
-        //                                  && x.Category.CategoryId == categoryId
-        //                                  && x.Type == OperationType.Income)
-        //                                  .ToList();
-
-        //    List<OperationEntity> income = _context.Operations
-        //                                  .AsNoTracking()
-        //                                  .Where(x => x.Date > dateFrom.Date
-        //                                  && x.Date < dateTo.Date
-        //                                  && x.Category.CategoryId == categoryId
-        //                                  && x.Type == OperationType.Income)
-        //                                  .ToList();
-
-        //    var grouped = op.GroupBy(x => x.Date);
-        //    //var grouped = op.GroupBy(x => x.CategoryItemEntityId);
-        //    List<DiagramItem> result = new List<DiagramItem>();
-        //    foreach (var item in grouped)
-        //    {
-        //        result.Add(new DiagramItem
-        //        {
-        //            Label = item.FirstOrDefault().Category.Name,
-        //            Value = item.Sum(x => x.Amount)
-        //        });
-        //    }
-
-        //    return result;
-        //}
-
 
     }
 }

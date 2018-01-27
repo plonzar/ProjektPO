@@ -1,4 +1,6 @@
-﻿using ProjektPO.Model;
+﻿using ProjektPO.Entity;
+using ProjektPO.Enums;
+using ProjektPO.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
