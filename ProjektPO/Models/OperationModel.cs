@@ -1,4 +1,5 @@
-﻿using ProjektPO.Model.Abstract;
+﻿using ProjektPO.Entity;
+using ProjektPO.Model.Abstract;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

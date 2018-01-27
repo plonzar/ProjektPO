@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ProjektPO.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektPO.Model.Abstract
+namespace ProjektPO.Abstract
 {
     public interface IOperationModel
     {

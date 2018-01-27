@@ -1,23 +1,20 @@
-﻿using System;
+﻿using ProjektPO.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektPO.Model
+namespace ProjektPO.Entity
 {
-    public class OperationEntity
+    public class OperationEntity: Entity
     {
-        [Key]
-        public int Id { get; set; }
         public DateTime Date { get; set; }
         public decimal Amount { get; set; }
-        public CategoryItemEntity OperationCategory { get; set; }
+        public int CategoryItemEntityId { get; set; }
+        public CategoryItemEntity Category { get; set; }
         public OperationType Type { get; set; }
-        public int UserId { get; set; }
         public string Note { get; set; }
     }
-
-    public enum OperationType { Income, Outcome }
 }
