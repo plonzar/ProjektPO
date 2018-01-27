@@ -89,6 +89,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Abstract\IEstimatesModel.cs" />
+    <Compile Include="HelperClasses\DiagramItem.cs" />
+    <Compile Include="HelperClasses\EstimatedOutcomeIncome.cs" />
+    <Compile Include="HelperClasses\Point.cs" />
+    <Compile Include="Models\EstimatesModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CategoryItemViewModel.cs" />
     <Compile Include="ViewModels\OperationViewModel.cs" />
@@ -125,7 +130,6 @@
     <Compile Include="Models\StatisticsModel.cs" />
     <Compile Include="Entity\UserEntity.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

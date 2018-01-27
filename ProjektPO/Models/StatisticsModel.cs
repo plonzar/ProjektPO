@@ -1,4 +1,5 @@
-﻿using ProjektPO.Model.Abstract;
+﻿using ProjektPO.HelperClasses;
+using ProjektPO.Model.Abstract;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,47 +11,164 @@ namespace ProjektPO.Model
 {
     public class StatisticsModel: IStatisticsModel
     {
-        public Dictionary<DateTime, decimal> GetLinearIncome()
-        {
-            Dictionary<DateTime, decimal> temp = new Dictionary<DateTime, decimal>();
+        private ApplicationDB _context;
 
-            return temp;
+        public StatisticsModel()
+        {
+            _context = new ApplicationDB();
         }
 
-        public Dictionary<DateTime, decimal> GetLinearOutcome()
+        public List<Point> GetLinearIncome(DateTime dateFrom, DateTime dateTo, int categoryId)
         {
-            Dictionary<DateTime, decimal> temp = new Dictionary<DateTime, decimal>();
+            List<OperationEntity> op = _context.Operations
+                                               .AsNoTracking()
+                                               .Where(x => x.Date > dateFrom.Date
+                                               && x.Date < dateTo.Date
+                                               && x.Category.CategoryId == categoryId
+                                               && x.Type == OperationType.Income)
+                                               .ToList();
 
-            return temp;
+            var grouped = op.GroupBy(x => x.Date);
+            List<Point> result = new List<Point>();
+            foreach (var item in grouped)
+            {
+                result.Add(new Point { X = item.Key, Y = item.Sum(x => x.Amount) });
+            }
+
+            return result;
+        }
+        public List<Point> GetLinearOutcome(DateTime dateFrom, DateTime dateTo, int categoryId)
+        {
+            List<OperationEntity> op = _context.Operations
+                                               .AsNoTracking()
+                                               .Where(x => x.Date >= dateFrom
+                                               && x.Date <= dateTo
+                                               && x.Category.CategoryId == categoryId 
+                                               && x.Type == OperationType.Outcome)
+                                               .ToList();
+
+            var grouped = op.GroupBy(x => x.Date);
+            List<Point> result = new List<Point>();
+            foreach (var item in grouped)
+            {
+                result.Add(new Point { X = item.Key, Y = item.Sum(x => x.Amount) });
+            }
+
+            return result;
+        }
+        public List<Point> GetLinearProfit(DateTime dateFrom, DateTime dateTo, int categoryId)
+        {
+            List<OperationEntity> income = _context.Operations
+                                   .AsNoTracking()
+                                   .Where(x => x.Date >= dateFrom.Date
+                                   && x.Date <= dateTo.Date
+                                   && x.Category.CategoryId == categoryId
+                                   && x.Type == OperationType.Income)
+                                   .ToList();
+
+            List<OperationEntity> outcome = _context.Operations
+                                   .AsNoTracking()
+                                   .Where(x => x.Date >= dateFrom.Date
+                                   && x.Date <= dateTo.Date
+                                   && x.Category.CategoryId == categoryId
+                                   && x.Type == OperationType.Outcome)
+                                   .ToList();
+
+
+
+            var grouped = income.GroupBy(x => x.Date);
+            List<Point> result = new List<Point>();
+            foreach (var item in grouped)
+            {
+                result.Add(new Point {
+                    X = item.Key,
+                    Y = (item.Sum(x => x.Amount) - outcome.Where(x => x.Date == item.Key).Sum(x => x.Amount))
+                });
+            }
+
+            return result;
+        }
+        public List<DiagramItem> GetIncomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId)
+        {
+            List<OperationEntity> op = _context.Operations
+                                            .AsNoTracking()
+                                            .Where(x => x.Date > dateFrom.Date
+                                            && x.Date < dateTo.Date
+                                            && x.Category.CategoryId == categoryId
+                                            && x.Type == OperationType.Income)
+                                            .ToList();
+
+            var grouped = op.GroupBy(x => x.Date);
+            //var grouped = op.GroupBy(x => x.CategoryItemEntityId);
+            List<DiagramItem> result = new List<DiagramItem>();
+            foreach (var item in grouped)
+            {
+                result.Add(new DiagramItem{
+                  Label = item.FirstOrDefault().Category.Name,
+                  Value = item.Sum(x => x.Amount)
+                });
+            }
+
+            return result;
+        }
+        public List<DiagramItem> GetOutcomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId)
+        {
+            List<OperationEntity> op = _context.Operations
+                                          .AsNoTracking()
+                                          .Where(x => x.Date > dateFrom.Date
+                                          && x.Date < dateTo.Date
+                                          && x.Category.CategoryId == categoryId
+                                          && x.Type == OperationType.Outcome)
+                                          .ToList();
+
+            var grouped = op.GroupBy(x => x.Date);
+            //var grouped = op.GroupBy(x => x.CategoryItemEntityId);
+            List<DiagramItem> result = new List<DiagramItem>();
+            foreach (var item in grouped)
+            {
+                result.Add(new DiagramItem
+                {
+                    Label = item.FirstOrDefault().Category.Name,
+                    Value = item.Sum(x => x.Amount)
+                });
+            }
+
+            return result;
+
         }
 
-        public Dictionary<DateTime, decimal> GetLinearProfit()
-        {
-            Dictionary<DateTime, decimal> temp = new Dictionary<DateTime, decimal>();
+        //public List<DiagramItem> GetPercentageProfit(DateTime dateFrom, DateTime dateTo, int categoryId)
+        //{
+        //    List<OperationEntity> income = _context.Operations
+        //                                  .AsNoTracking()
+        //                                  .Where(x => x.Date > dateFrom.Date
+        //                                  && x.Date < dateTo.Date
+        //                                  && x.Category.CategoryId == categoryId
+        //                                  && x.Type == OperationType.Income)
+        //                                  .ToList();
 
-            return temp;
-        }
+        //    List<OperationEntity> income = _context.Operations
+        //                                  .AsNoTracking()
+        //                                  .Where(x => x.Date > dateFrom.Date
+        //                                  && x.Date < dateTo.Date
+        //                                  && x.Category.CategoryId == categoryId
+        //                                  && x.Type == OperationType.Income)
+        //                                  .ToList();
 
-        public Dictionary<CategoryEntity, float> GetPercentageIncome()
-        {
-            Dictionary<CategoryEntity, float> temp = new Dictionary<CategoryEntity, float>();
+        //    var grouped = op.GroupBy(x => x.Date);
+        //    //var grouped = op.GroupBy(x => x.CategoryItemEntityId);
+        //    List<DiagramItem> result = new List<DiagramItem>();
+        //    foreach (var item in grouped)
+        //    {
+        //        result.Add(new DiagramItem
+        //        {
+        //            Label = item.FirstOrDefault().Category.Name,
+        //            Value = item.Sum(x => x.Amount)
+        //        });
+        //    }
 
-            return temp;
-        }
-
-        public Dictionary<CategoryEntity, float> GetPercentageOutcome()
-        {
-            Dictionary<CategoryEntity, float> temp = new Dictionary<CategoryEntity, float>();
-
-            return temp;
-        }
-
-        public Dictionary<CategoryEntity, float> GetPercentageProfit()
-        {
-            Dictionary<CategoryEntity, float> temp = new Dictionary<CategoryEntity, float>();
-
-            return temp;
-        }
+        //    return result;
+        //}
 
 
     }
