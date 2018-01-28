@@ -5,6 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektPO"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid/>
+        Background="GhostWhite"
+        ResizeMode="NoResize"        
+        Title="Home Budget" Height="375" Width="525">
+    <Grid HorizontalAlignment="Left" Width="519" Height="347" VerticalAlignment="Top">
+        <Label Content="Username" FontSize="25" Margin="27,10,327,265" FontFamily="Raleway"/>
+        <Label Content=":" FontSize="25" Margin="148,10,344,265" FontFamily="Raleway"/>
+        <Label Content="Password" FontSize="25" Margin="27,65,344,210" FontFamily="Raleway"/>
+        <Label Content=":" FontSize="25" Margin="148,65,344,210" FontFamily="Raleway"/>
+        <TextBox x:Name="username" Width="280" Height="30"  Margin="192,0,47,301" BorderThickness="1" BorderBrush="Black" FontSize="18" VerticalAlignment="Bottom"/>
+        <PasswordBox x:Name="password" PasswordChar="*" Width="280" Height="30" Margin="192,0,47,247" BorderThickness="1" BorderBrush="Black" FontSize="18" VerticalAlignment="Bottom"/>
+        <Button x:Name="login" Width="140" Height="30" Content="Login" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="0,147,189,170" HorizontalAlignment="Right"/>
+        <Button x:Name="Register" Width="140" Height="30" Content="Register" Background="GhostWhite" BorderBrush="Black" FontSize="18" VerticalAlignment="Center" Margin="190,191,189,126"/>
+        <Button x:Name="edit" Width="140" Height="30" Content="Edit" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="190,235,189,82"/>
+        <Button x:Name="delete" Width="140" Height="30" Content="Delete" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="190,280,189,37"/>
+    </Grid>
 </Window>
