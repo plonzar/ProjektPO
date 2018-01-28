@@ -12,6 +12,6 @@ namespace ProjektPO.Entity
         public string Name { get; set; }
         public int CategoryEntityId { get; set; }
         public CategoryEntity CategoryEntity { get; set; }
-        public bool IcludeInAstimates { get; set; }
+        public bool IncludeInEstimates { get; set; }
     }
 }

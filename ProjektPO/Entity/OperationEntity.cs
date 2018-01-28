@@ -13,7 +13,7 @@ namespace ProjektPO.Entity
         public DateTime Date { get; set; }
         public decimal Amount { get; set; }
         public int CategoryItemEntityId { get; set; }
-        public CategoryItemEntity Category { get; set; }
+        public CategoryItemEntity CategoryItem { get; set; }
         public OperationType Type { get; set; }
         public string Note { get; set; }
     }

@@ -1,5 +1,5 @@
 ﻿using ProjektPO.Entity;
-using ProjektPO.Model.Abstract;
+using ProjektPO.Abstract;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektPO.Model
+namespace ProjektPO.Models
 {
     public class OperationModel: IOperationModel
     {

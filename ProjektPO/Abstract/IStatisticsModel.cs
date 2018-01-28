@@ -1,19 +1,16 @@
-﻿using ProjektPO.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ProjektPO.HelperClasses;
 
-namespace ProjektPO.Model.Abstract
+namespace ProjektPO.Abstract
 {
     public interface IStatisticsModel
     {
-        Dictionary<DateTime, decimal> GetLinearIncome();
-        Dictionary<DateTime, decimal> GetLinearOutcome();
-        Dictionary<DateTime, decimal> GetLinearProfit();
-        Dictionary<CategoryEntity, float> GetPercentageIncome();
-        Dictionary<CategoryEntity,  float> GetPercentageOutcome();
-        Dictionary<CategoryEntity, float> GetPercentageProfit();
+        List<Point> GetLinearIncome(DateTime dateFrom, DateTime dateTo, int categoryId);
+        List<Point> GetLinearOutcome(DateTime dateFrom, DateTime dateTo, int categoryId);
+        List<Point> GetLinearProfit(DateTime dateFrom, DateTime dateTo, int categoryId);
+        List<DiagramItem> GetIncomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId);
+        List<DiagramItem> GetOutcomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId);
+
     }
 }

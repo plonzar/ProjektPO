@@ -1,4 +1,4 @@
-﻿using ProjektPO.Model.Abstract;
+﻿using ProjektPO.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,7 @@ namespace ProjektPO.Model
 {
     public class UserModel: IUserModel
     {
+
         public void Register()
         {
 
