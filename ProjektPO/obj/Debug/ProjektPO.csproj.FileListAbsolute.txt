@@ -16,7 +16,6 @@ D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.csproj.GenerateReso
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.csproj.CoreCompileInputs.cache
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.exe
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.pdb
-D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.Migrations.initial.resources
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -25,3 +24,15 @@ D:\ProjektPO\projekt\ProjektPO\ProjektPO\bin\Debug\Microsoft.VisualStudio.TestPl
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO_Content.g.cs
+D:\ProjektPO\Projekt\ProjektPO\ProjektPO\bin\Debug\AutoMapper.dll
+D:\ProjektPO\Projekt\ProjektPO\ProjektPO\bin\Debug\AutoMapper.EF6.dll
+D:\ProjektPO\Projekt\ProjektPO\ProjektPO\bin\Debug\DelegateDecompiler.dll
+D:\ProjektPO\Projekt\ProjektPO\ProjektPO\bin\Debug\DelegateDecompiler.EntityFramework.dll
+D:\ProjektPO\Projekt\ProjektPO\ProjektPO\bin\Debug\Mono.Reflection.dll
+D:\ProjektPO\Projekt\ProjektPO\ProjektPO\bin\Debug\AutoMapper.xml
+D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.Migrations.initial.resources
+D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.Migrations.second.resources
+D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.Migrations.third.resources
+D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.Migrations.fourth.resources
+D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.Migrations.poprawaLiterowek.resources
+D:\ProjektPO\projekt\ProjektPO\ProjektPO\obj\Debug\ProjektPO.csprojResolveAssemblyReference.cache

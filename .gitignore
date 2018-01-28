@@ -44,3 +44,8 @@ ProjektPO/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
 ProjektPO/obj/Debug/DesignTimeResolveAssemblyReferences.cache
 ProjektPO/obj
 ProjektPO/bin
+/.vs
+/ProjektPO/bin
+/ProjektPO/obj
+/ProjektPO.UnitTest/obj
+/ProjektPO.UnitTest/bin

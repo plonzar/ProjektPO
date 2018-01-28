@@ -39,3 +39,9 @@ D:\ProjektPO\Projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\Castle.Core.xml
 D:\ProjektPO\Projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\Moq.pdb
 D:\ProjektPO\Projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\Moq.xml
 D:\ProjektPO\Projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\ProjektPO\projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\AutoMapper.dll
+D:\ProjektPO\projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\AutoMapper.EF6.dll
+D:\ProjektPO\projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\DelegateDecompiler.dll
+D:\ProjektPO\projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\DelegateDecompiler.EntityFramework.dll
+D:\ProjektPO\projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\Mono.Reflection.dll
+D:\ProjektPO\projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\AutoMapper.xml
