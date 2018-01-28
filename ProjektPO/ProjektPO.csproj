@@ -90,7 +90,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Entity\Entity.cs" />
-    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="Enums\Months.cs" />
+    <Compile Include="Enums\OperationType.cs" />
     <Compile Include="Migrations\201801272142589_initial.cs" />
     <Compile Include="Migrations\201801272142589_initial.Designer.cs">
       <DependentUpon>201801272142589_initial.cs</DependentUpon>
@@ -107,7 +108,16 @@
     <Compile Include="Migrations\201801272216507_fourth.Designer.cs">
       <DependentUpon>201801272216507_fourth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801272333569_poprawaLiterowek.cs" />
+    <Compile Include="Migrations\201801272333569_poprawaLiterowek.Designer.cs">
+      <DependentUpon>201801272333569_poprawaLiterowek.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Abstract\IEstimatesModel.cs" />
+    <Compile Include="HelperClasses\DiagramItem.cs" />
+    <Compile Include="HelperClasses\EstimatedOutcomeIncome.cs" />
+    <Compile Include="HelperClasses\Point.cs" />
+    <Compile Include="Models\EstimatesModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CategoryItemViewModel.cs" />
     <Compile Include="ViewModels\OperationViewModel.cs" />
@@ -163,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801272216507_fourth.resx">
       <DependentUpon>201801272216507_fourth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801272333569_poprawaLiterowek.resx">
+      <DependentUpon>201801272333569_poprawaLiterowek.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
