@@ -9,9 +9,9 @@ namespace ProjektPO.Abstract
 {
     public interface IOperationModel
     {
-        void AddOperation(Action newOperation);
-        List<OperationEntity> GetList();
-        void Update(Action action);
+        void AddOperation(OperationEntity newOperation);
+        List<OperationEntity> GetList(UserEntity user);
+        void Update(OperationEntity operation);
         void Delete();
     }
 }
