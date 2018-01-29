@@ -9,6 +9,7 @@ namespace ProjektPO.Model
 {
     public class UserModel: IUserModel
     {
+
         public void Register()
         {
 
