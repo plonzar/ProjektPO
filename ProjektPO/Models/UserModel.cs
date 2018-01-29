@@ -10,7 +10,6 @@ namespace ProjektPO.Model
     public class UserModel: IUserModel
     {
 
-        public void Register()
         public bool Register()
         {
             return true;
@@ -21,25 +20,21 @@ namespace ProjektPO.Model
             return true;
         }
 
-        public void Login()
         public void Logout()
         {
 
         }
 
-        public void Logout()
         public void Edit_Username()
         {
 
         }
 
-        public void Edit()
         public void Edit_Password()
         {
 
         }
 
-        public void Delete()
         public void Delete_Account()
         {
 

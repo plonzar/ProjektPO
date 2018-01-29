@@ -9,21 +9,25 @@ using System.Threading.Tasks;
 
 namespace ProjektPO.Models
 {
-    public class OperationModel: IOperationModel
+    public class OperationModel : IOperationModel//heheszki
     {
         private ApplicationDB appContext = new ApplicationDB();
-        public void AddOperation(OperationEntity newOperation)
+        public void AddOperation(OperationEntity newOperation, int userId)// 
         {
             if (newOperation != null)
+            {
+                newOperation.UserEntityId = userId;
                 appContext.Operations.Add(newOperation);
+            }
+                
 
             appContext.SaveChanges();
         }
 
-        public List<OperationEntity> GetList(UserEntity user)
+        public List<OperationEntity> GetList(int userId)
         {
             var list = appContext.Operations
-                                 .Where(o => o.UserEntityId == user.Id)//spytać się czy to to samo id
+                                 .Where(o => o.UserEntityId == userId)
                                  .ToList();
             return list;
         }
@@ -45,9 +49,12 @@ namespace ProjektPO.Models
             appContext.SaveChanges();
         }
 
-        public void Delete()
+        public void Delete(int operationId)
         {
+            var deletedOperation = appContext.Operations.Find(operationId);
+            appContext.Operations.Remove(deletedOperation);
 
+            appContext.SaveChanges();
         }
     }
 }

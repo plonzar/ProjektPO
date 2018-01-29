@@ -12,6 +12,6 @@ namespace ProjektPO.Abstract
         void AddOperation(OperationEntity newOperation);
         List<OperationEntity> GetList(UserEntity user);
         void Update(OperationEntity operation);
-        void Delete();
+        void Delete(int operatonId);
     }
 }
