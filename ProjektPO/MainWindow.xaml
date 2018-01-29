@@ -10,7 +10,9 @@
         WindowStartupLocation="CenterScreen"
         HorizontalAlignment="Center"
         VerticalAlignment="Center"
-        Title="Home Budget" Height="275" Width="525">
+        Title="Home Budget" 
+        Height="275" 
+        Width="525">
     <Grid HorizontalAlignment="Center" Width="519" Height="347" VerticalAlignment="Center">
         <Label Content="Username" FontSize="25" Margin="28,77,350,234" FontFamily="Raleway"/>
         <Label Content=":" FontSize="25" Margin="148,77,344,233" FontFamily="Raleway" RenderTransformOrigin="0.63,-0.063"/>

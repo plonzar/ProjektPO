@@ -37,6 +37,10 @@ namespace ProjektPO
             }
             else
             {
+                SecondaryWindow window = new SecondaryWindow();
+                App.Current.Properties["SecondaryWindow"] = window;
+                ((MainWindow)App.Current.Properties["MainWindow"]).Hide();
+                window.Show();
             }
         }
 
