@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 
 namespace ProjektPO
 {
-    /// <summary>
+    /// <summary>fc
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
@@ -24,28 +24,33 @@ namespace ProjektPO
         public MainWindow()
         {
             InitializeComponent();
+            App.Current.Properties["MainWindow"] = this;
         }
 
         private void login_Click(object sender, RoutedEventArgs e)
         {
             string username_ = username.Text;
             string password_ = password.Password;
-            MessageBox.Show("no wyswietl sie");
+            if (String.IsNullOrEmpty(username_) || String.IsNullOrEmpty(password_))
+            {
+                MessageBox.Show("No username or password", "Error", MessageBoxButton.OK);
+            }
+            else
+            {
+            }
         }
 
         private void register_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void edit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void delete_Click(object sender, RoutedEventArgs e)
-        {
-
+            string username_ = username.Text;
+            string password_ = password.Password;
+            if (String.IsNullOrEmpty(username_) || String.IsNullOrEmpty(password_))
+            {
+                MessageBox.Show("No username or password", "Error", MessageBoxButton.OK);
+            }
+            else
+            {
+            }
         }
     }
 }
