@@ -6,45 +6,69 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjektPO.ViewModels;
 
 namespace ProjektPO.Models
 {
-    public class OperationModel : IOperationModel//heheszki
+    public class OperationModel : IOperationModel//heheszki_1
     {
         private ApplicationDB appContext = new ApplicationDB();
-        public void AddOperation(OperationEntity newOperation, int userId)// 
+        public void AddOperation(OperationViewModel newOperationViewModel, int userId)// 
         {
-            if (newOperation != null)
+            if (newOperationViewModel != null)
             {
-                newOperation.UserEntityId = userId;
+                OperationEntity newOperation = new OperationEntity()
+                {
+                    Id = newOperationViewModel.Id,
+                    Date = newOperationViewModel.Date,
+                    Amount = newOperationViewModel.Amount,
+                    CategoryItemEntityId = newOperationViewModel.OperationCategory.Id,
+                    CategoryItem = newOperationViewModel.OperationCategory,
+                    Type = newOperationViewModel.Type,
+                    Note = newOperationViewModel.Note,
+                    UserEntityId = userId
+                };
                 appContext.Operations.Add(newOperation);
             }
-                
-
             appContext.SaveChanges();
         }
 
-        public List<OperationEntity> GetList(int userId)
+        public List<OperationViewModel> GetList(int userId)//  -> zwraca list<operationviewmodel>
         {
-            var list = appContext.Operations
+            List<OperationViewModel> viewModelsList = new List<OperationViewModel>();
+            var entitiesList = appContext.Operations
                                  .Where(o => o.UserEntityId == userId)
                                  .ToList();
-            return list;
+
+            foreach(var entity in entitiesList)
+            {
+                viewModelsList.Add(new OperationViewModel()
+                {
+                    Id = entity.Id,
+                    Date = entity.Date,
+                    Amount = entity.Amount,
+                    OperationCategory = entity.CategoryItem,
+                    Type = entity.Type,
+                    UserId = entity.UserEntityId.ToString(),
+                    Note = entity.Note
+                } );
+            }
+
+            return viewModelsList;
         }
 
-        public void Update(OperationEntity newOperation)
+        public void Update(OperationViewModel updatedOperation)//operation view model
         {
-            var operation = appContext.Operations.Find(newOperation.Id);
+            var updatedEntity = appContext.Operations.Find(updatedOperation.Id);
 
-            operation.UserEntityId = newOperation.UserEntityId;
-            operation.UserEntity = newOperation.UserEntity;
-            operation.Amount = newOperation.Amount;
-            //operation.Date = newOperation.Date;
-            operation.Amount = newOperation.Amount;
-            operation.CategoryItemEntityId = newOperation.CategoryItemEntityId;
-            operation.CategoryItem = newOperation.CategoryItem;
-            operation.Type = newOperation.Type;
-            operation.Note = newOperation.Note;
+            updatedEntity.Id = updatedOperation.Id;
+            updatedEntity.Date = updatedOperation.Date;
+            updatedEntity.Amount = updatedOperation.Amount;
+            updatedEntity.CategoryItemEntityId = updatedOperation.OperationCategory.Id;
+            updatedEntity.CategoryItem = updatedOperation.OperationCategory;
+            updatedEntity.Type = updatedOperation.Type;
+            updatedEntity.Note = updatedOperation.Note;
+            updatedEntity.UserEntityId = int.Parse(updatedOperation.UserId);
 
             appContext.SaveChanges();
         }
