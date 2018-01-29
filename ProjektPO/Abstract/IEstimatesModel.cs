@@ -10,7 +10,7 @@ namespace ProjektPO.Abstract
     public interface IEstimatesModel
     {
 
-        EstimatedOutcomeIncome GetEstimatesForNextMonth();
+        EstimatedOutcomeIncome GetEstimatesForNextMonth(int userId);
 
     }
 }

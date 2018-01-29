@@ -20,12 +20,12 @@ namespace ProjektPO.Models
             _context = new ApplicationDB();
         }
 
-        public EstimatedOutcomeIncome GetEstimatesForNextMonth()
+        public EstimatedOutcomeIncome GetEstimatesForNextMonth(int userId)
         {
             EstimatedOutcomeIncome result = new EstimatedOutcomeIncome();
 
-            var incomesToEstimate = _context.Operations.Where(x => x.Type == OperationType.Income && x.CategoryItem.IncludeInEstimates).ToList();
-            var outcomesToEstimate = _context.Operations.Where(x => x.Type == OperationType.Outcome && x.CategoryItem.IncludeInEstimates).ToList();
+            var incomesToEstimate = _context.Operations.Where(x => x.UserEntityId == userId && x.Type == OperationType.Income && x.CategoryItem.IncludeInEstimates).ToList();
+            var outcomesToEstimate = _context.Operations.Where(x => x.UserEntityId == userId && x.Type == OperationType.Outcome && x.CategoryItem.IncludeInEstimates).ToList();
 
             var orderedIncomes = incomesToEstimate.OrderBy(x => x.Date);
             if(orderedIncomes.Count() == 0)
@@ -41,7 +41,7 @@ namespace ProjektPO.Models
 
                 decimal incomePerDay = orderedIncomes.Sum(x => x.Amount);
 
-                int nextMonthDays = (new DateTime(1, DateTime.Today.Month, DateTime.Today.Year).AddMonths(1).AddDays(-1).Day) - (new DateTime(1, DateTime.Today.Month, DateTime.Today.Year).Day)  ;
+                int nextMonthDays = (new DateTime(1, DateTime.Today.Month, DateTime.Today.Year).AddMonths(1).Day) - (new DateTime(1, DateTime.Today.Month, DateTime.Today.Year).Day)  ;
 
                 result.EstimatedIncome = incomePerDay * (decimal)nextMonthDays;
             }
