@@ -25,5 +25,27 @@ namespace ProjektPO
         {
             InitializeComponent();
         }
+
+        private void login_Click(object sender, RoutedEventArgs e)
+        {
+            string username_ = username.Text;
+            string password_ = password.Password;
+            MessageBox.Show("no wyswietl sie");
+        }
+
+        private void register_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void edit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
