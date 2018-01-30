@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektPO.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,51 +20,48 @@ namespace ProjektPO
     /// </summary>
     public partial class SecondaryWindow : Window
     {
-        bool logging_out = false;
         public SecondaryWindow()
         {
             InitializeComponent();
         }
 
-        private void edit_username_Click(object sender, RoutedEventArgs e)
+        private void LogoutClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            ((MainWindow)App.Current.Properties["MainWindow"]).Show();
+        }
+
+        private void EditUsernameClick(object sender, RoutedEventArgs e)
         {
             EditUsername edit_username = new EditUsername();
-            ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = false;
+            this.IsEnabled = false;
+            edit_username.Owner = this;
             edit_username.Show();
         }
 
-        private void edit_password_Click(object sender, RoutedEventArgs e)
+        private void EditPasswordClick(object sender, RoutedEventArgs e)
         {
             EditPassword edit_password = new EditPassword();
-            ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = false;
+            this.IsEnabled = false;
+            edit_password.Owner = this;
             edit_password.Show();
-        }
+        }   
 
-        private void logout_Click(object sender, RoutedEventArgs e)
-        {
-            logging_out = true;
-            ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).Close();
-            ((MainWindow)App.Current.Properties["MainWindow"]).Show();
-        }    
-
-        private void delete_account_Click(object sender, RoutedEventArgs e)
+        private void DeleteAccountClick(object sender, RoutedEventArgs e)
         {
             MessageBoxResult answer = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButton.YesNo);
             if (answer == MessageBoxResult.Yes)
             {
-                //Delete_Account();
-                logging_out = true;
-                ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).Close();
+                var user = new UserViewModel();
+                user.DeleteAccount();
+                this.Close();
                 ((MainWindow)App.Current.Properties["MainWindow"]).Show();
             }
         }
 
         private void SecondaryWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (!logging_out)
-            {
-                e.Cancel = true;
-            }
+            ((MainWindow)App.Current.Properties["MainWindow"]).Show();
         }
     }
 }

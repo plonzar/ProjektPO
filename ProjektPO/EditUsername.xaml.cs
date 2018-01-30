@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektPO.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,19 +25,39 @@ namespace ProjektPO
             InitializeComponent();
         }
 
-        private void confirm_Click(object sender, RoutedEventArgs e)
+        private void ConfirmClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Your username has been changed.", "Confirmation", MessageBoxButton.OK);
+            string newUsername_ = newUsername.Text;
+
+            if (!String.IsNullOrEmpty(newUsername_))
+            {
+                var user = new UserViewModel();
+                if (user.EditUsername(newUsername_))
+                {
+                    MessageBox.Show("Your username has been changed.", "Confirmation", MessageBoxButton.OK);
+                }
+                else
+                {
+                    MessageBox.Show("This username is already taken.", "Error", MessageBoxButton.OK);
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("No username given.", "Error", MessageBoxButton.OK);
+            }
         }
 
-        private void return_Click(object sender, RoutedEventArgs e)
+        private void ReturnClick(object sender, RoutedEventArgs e)
         {
+            this.Owner = null;
             ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = true;
             this.Close();
         }
 
         private void EditUsername_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            this.Owner = null;
             ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = true;
         }
 

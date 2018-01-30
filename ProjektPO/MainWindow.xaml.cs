@@ -1,4 +1,5 @@
 ﻿using ProjektPO.Model;
+using ProjektPO.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace ProjektPO
             App.Current.Properties["MainWindow"] = this;
         }
 
-        private void login_Click(object sender, RoutedEventArgs e)
+        private void LoginClick(object sender, RoutedEventArgs e)
         {
             string username_ = username.Text;
             string password_ = password.Password;
@@ -37,14 +38,27 @@ namespace ProjektPO
             }
             else
             {
-                SecondaryWindow window = new SecondaryWindow();
-                App.Current.Properties["SecondaryWindow"] = window;
-                ((MainWindow)App.Current.Properties["MainWindow"]).Hide();
-                window.Show();
+                var user = new UserViewModel
+                {
+                    Name = username_,
+                    Password = password_
+                };
+
+                if (user.Login())
+                {
+                    SecondaryWindow window = new SecondaryWindow();
+                    App.Current.Properties["SecondaryWindow"] = window;
+                    ((MainWindow)App.Current.Properties["MainWindow"]).Hide();
+                    window.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong username and/or password.", "Login failed", MessageBoxButton.OK);
+                }
             }
         }
 
-        private void register_Click(object sender, RoutedEventArgs e)
+        private void RegisterClick(object sender, RoutedEventArgs e)
         {
             string username_ = username.Text;
             string password_ = password.Password;
@@ -54,6 +68,19 @@ namespace ProjektPO
             }
             else
             {
+                var user = new UserViewModel
+                {
+                    Name = username_,
+                    Password = password_
+                };
+                if (user.Register())
+                {
+                    MessageBox.Show("Your account has been successfully registered.", "Registration", MessageBoxButton.OK);
+                }
+                else
+                {
+                    MessageBox.Show("This username is already taken.", "Registration", MessageBoxButton.OK);
+                }
             }
         }
     }
