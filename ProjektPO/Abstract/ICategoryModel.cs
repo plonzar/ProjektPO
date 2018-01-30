@@ -1,4 +1,5 @@
 ﻿using ProjektPO.Entity;
+using ProjektPO.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,12 @@ namespace ProjektPO.Abstract
 {
     public interface ICategoryModel
     {
-        void AddCategory();
+        void AddCategory(CategoryViewModel categoryViewModel, int userId);        
+        void DeleteCategory(int categoryId);
+        void EditCategory(CategoryViewModel categoryViewModel);
+        void ReadCategory(string categoryId);
+        void DeleteCategoryItem();     
         void AddCategoryItem();
-        void DeleteCategory();
-        void DeleteCategoryItem();
-        void EditCategory();
-        void ReadCategory();
         void ReadCategoryItems(CategoryEntity category);
 
     }

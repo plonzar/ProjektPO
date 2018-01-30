@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ProjektPO.Models;
 using ProjektPO.Entity;
+using ProjektPO.ViewModels;
 
 namespace ProjektPO
 {
@@ -39,10 +40,10 @@ namespace ProjektPO
             }
             else
             {
-                SecondaryWindow window = new SecondaryWindow();
+                /*SecondaryWindow window = new SecondaryWindow();
                 App.Current.Properties["SecondaryWindow"] = window;
                 ((MainWindow)App.Current.Properties["MainWindow"]).Hide();
-                window.Show();
+                window.Show();*/
             }
         }
 
@@ -56,6 +57,19 @@ namespace ProjektPO
             }
             else
             {
+                var user = new UserViewModel
+                {
+                    Name = username_,
+                    Password = password_
+                };
+                if (user.Register())
+                {
+                    MessageBox.Show("Your account has been successfully registered.", "Registration", MessageBoxButton.OK);
+                }
+                else
+                {
+                    MessageBox.Show("This username is already taken.", "Registration", MessageBoxButton.OK);
+                }
             }
         }
        

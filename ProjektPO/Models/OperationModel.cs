@@ -10,7 +10,7 @@ using ProjektPO.ViewModels;
 
 namespace ProjektPO.Models
 {
-    public class OperationModel : IOperationModel//heheszki_1
+    public class OperationModel : IOperationModel//heheszki_2
     {
         private ApplicationDB appContext = new ApplicationDB();
         public void AddOperation(OperationViewModel newOperationViewModel, int userId)// 
@@ -19,14 +19,14 @@ namespace ProjektPO.Models
             {
                 OperationEntity newOperation = new OperationEntity()
                 {
+                    UserEntityId = userId,
+                    Note = newOperationViewModel.Note,
+                    Type = newOperationViewModel.Type,
+                    Amount = newOperationViewModel.Amount,
                     Id = newOperationViewModel.Id,
                     Date = newOperationViewModel.Date,
-                    Amount = newOperationViewModel.Amount,
-                    CategoryItemEntityId = newOperationViewModel.OperationCategory.Id,
-                    CategoryItem = newOperationViewModel.OperationCategory,
-                    Type = newOperationViewModel.Type,
-                    Note = newOperationViewModel.Note,
-                    UserEntityId = userId
+                    CategoryItemEntityId = newOperationViewModel.OperationCategory.CategoryEntityId,
+                    CategoryItem = newOperationViewModel.OperationCategory
                 };
                 appContext.Operations.Add(newOperation);
             }
@@ -64,7 +64,6 @@ namespace ProjektPO.Models
             updatedEntity.Id = updatedOperation.Id;
             updatedEntity.Date = updatedOperation.Date;
             updatedEntity.Amount = updatedOperation.Amount;
-            updatedEntity.CategoryItemEntityId = updatedOperation.OperationCategory.Id;
             updatedEntity.CategoryItem = updatedOperation.OperationCategory;
             updatedEntity.Type = updatedOperation.Type;
             updatedEntity.Note = updatedOperation.Note;
