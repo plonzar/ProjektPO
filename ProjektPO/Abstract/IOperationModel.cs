@@ -10,13 +10,6 @@ namespace ProjektPO.Abstract
 {
     public interface IOperationModel
     {
-<<<<<<< HEAD
-=======
-        void AddOperation(Action newOperation);
-        List<OperationEntity> GetList();
-        void Update(Action action);
-        void Delete();
->>>>>>> origin/stage
         void AddOperation(OperationViewModel newOperation, int userId);
         List<OperationViewModel> GetList(int userId);
         void Update(OperationViewModel operation);
