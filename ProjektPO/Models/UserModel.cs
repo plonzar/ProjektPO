@@ -85,36 +85,29 @@ namespace ProjektPO.Model
         {
             _context = new ApplicationDB();
             var dbEntry = _context.Users.Find((int)App.Current.Properties["loggedUserID"]);
-            List<int> categoryIDs = new List<int>();
-            foreach (var category in _context.Categories.Where(x => x.UserEntityId == dbEntry.Id))
+            var categories = _context.Categories.ToList();
+            var categoryItems = _context.CategoryItems.ToList();
+            var operations = _context.Operations.ToList();
+            foreach (var category in categories)
             {
-                categoryIDs.Add(category.Id);
-            }
-            List<int> categoryItemIDs = new List<int>();
-            foreach (int categoryID in categoryIDs)
-            {
-                foreach (var categoryItem in _context.CategoryItems.Where(x => x.UserEntityId == dbEntry.Id && x.CategoryEntityId == categoryID))
+                if (category.UserEntityId == dbEntry.Id)
                 {
-                    categoryItemIDs.Add(categoryItem.Id);
+                    foreach (var categoryItem in categoryItems)
+                    {
+                        if (categoryItem.UserEntityId == dbEntry.Id && categoryItem.CategoryEntityId == category.Id)
+                        {
+                            foreach (var operation in operations)
+                            {
+                                if (operation.UserEntityId == dbEntry.Id && operation.CategoryItemEntityId == categoryItem.Id)
+                                {
+                                    _context.Operations.Remove(operation);
+                                }
+                            }
+                            _context.CategoryItems.Remove(categoryItem);
+                        }
+                    }
+                    _context.Categories.Remove(category);
                 }
-            }
-            foreach(int categoryItemID in categoryItemIDs)
-            {
-                foreach(var operation in _context.Operations.Where(x => x.UserEntityId == dbEntry.Id && x.CategoryItemEntityId == categoryItemID))
-                {
-                    _context.Operations.Remove(operation);
-                }
-            }
-            foreach (int categoryID in categoryIDs)
-            {
-                foreach (var categoryItem in _context.CategoryItems.Where(x => x.UserEntityId == dbEntry.Id && x.CategoryEntityId == categoryID))
-                {
-                    _context.CategoryItems.Remove(categoryItem);
-                }
-            }
-            foreach (var category in _context.Categories.Where(x => x.UserEntityId == dbEntry.Id))
-            {
-                _context.Categories.Remove(category);
             }
             _context.Users.Remove(dbEntry);
             _context.SaveChanges();
