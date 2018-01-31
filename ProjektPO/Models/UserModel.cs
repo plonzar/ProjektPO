@@ -84,6 +84,37 @@ namespace ProjektPO.Model
         {
             _context = new ApplicationDB();
             var dbEntry = _context.Users.Find((int)App.Current.Properties["loggedUserID"]);
+            List<int> categoryIDs = new List<int>();
+            foreach (var category in _context.Categories.Where(x => x.UserEntityId == dbEntry.Id))
+            {
+                categoryIDs.Add(category.Id);
+            }
+            List<int> categoryItemIDs = new List<int>();
+            foreach (int categoryID in categoryIDs)
+            {
+                foreach (var categoryItem in _context.CategoryItems.Where(x => x.UserEntityId == dbEntry.Id && x.CategoryEntityId == categoryID))
+                {
+                    categoryItemIDs.Add(categoryItem.Id);
+                }
+            }
+            foreach(int categoryItemID in categoryItemIDs)
+            {
+                foreach(var operation in _context.Operations.Where(x => x.UserEntityId == dbEntry.Id && x.CategoryItemEntityId == categoryItemID))
+                {
+                    _context.Operations.Remove(operation);
+                }
+            }
+            foreach (int categoryID in categoryIDs)
+            {
+                foreach (var categoryItem in _context.CategoryItems.Where(x => x.UserEntityId == dbEntry.Id && x.CategoryEntityId == categoryID))
+                {
+                    _context.CategoryItems.Remove(categoryItem);
+                }
+            }
+            foreach (var category in _context.Categories.Where(x => x.UserEntityId == dbEntry.Id))
+            {
+                _context.Categories.Remove(category);
+            }
             _context.Users.Remove(dbEntry);
             _context.SaveChanges();
             _context.Dispose();
