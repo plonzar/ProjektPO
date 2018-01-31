@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektPO.Model
+namespace ProjektPO.Entity
 {
-    public class CategoryItemEntity
+    public class CategoryItemEntity: Entity
     {
-        [Key]
-        public int CategoryId { get; set; }
-        public int UserId { get; set; }
         public string Name { get; set; }
+        public int CategoryEntityId { get; set; }
+        public CategoryEntity CategoryEntity { get; set; }
+        public bool IncludeInEstimates { get; set; }
     }
 }

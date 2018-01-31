@@ -40,9 +40,6 @@
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper.EF6, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.EF6.1.1.1\lib\net45\AutoMapper.EF6.dll</HintPath>
-    </Reference>
     <Reference Include="AutoMapper.EF6.Extended, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.EF6.Extended.0.0.2\lib\net45\AutoMapper.EF6.Extended.dll</HintPath>
     </Reference>
@@ -50,7 +47,7 @@
       <HintPath>..\packages\DelegateDecompiler.0.23.0\lib\net40-client\DelegateDecompiler.dll</HintPath>
     </Reference>
     <Reference Include="DelegateDecompiler.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
-      <HintPath>..\packages\DelegateDecompiler.EntityFramework.0.23.0\lib\net45\DelegateDecompiler.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\DelegateDecompiler.EntityFramework.0.17.0\lib\net45\DelegateDecompiler.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -89,6 +86,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Entity\Entity.cs" />
+    <Compile Include="Enums\Months.cs" />
+    <Compile Include="Enums\OperationType.cs" />
+    <Compile Include="Migrations\201801272142589_initial.cs" />
+    <Compile Include="Migrations\201801272142589_initial.Designer.cs">
+      <DependentUpon>201801272142589_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801272144264_second.cs" />
+    <Compile Include="Migrations\201801272144264_second.Designer.cs">
+      <DependentUpon>201801272144264_second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801272158059_third.cs" />
+    <Compile Include="Migrations\201801272158059_third.Designer.cs">
+      <DependentUpon>201801272158059_third.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801272216507_fourth.cs" />
+    <Compile Include="Migrations\201801272216507_fourth.Designer.cs">
+      <DependentUpon>201801272216507_fourth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801272333569_poprawaLiterowek.cs" />
+    <Compile Include="Migrations\201801272333569_poprawaLiterowek.Designer.cs">
+      <DependentUpon>201801272333569_poprawaLiterowek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Abstract\IEstimatesModel.cs" />
+    <Compile Include="HelperClasses\DiagramItem.cs" />
+    <Compile Include="HelperClasses\EstimatedOutcomeIncome.cs" />
+    <Compile Include="HelperClasses\Point.cs" />
+    <Compile Include="Models\EstimatesModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CategoryItemViewModel.cs" />
     <Compile Include="ViewModels\OperationViewModel.cs" />
@@ -107,11 +133,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201801241559225_initial.cs" />
-    <Compile Include="Migrations\201801241559225_initial.Designer.cs">
-      <DependentUpon>201801241559225_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Abstract\ICategoryModel.cs" />
     <Compile Include="Abstract\IOperationModel.cs" />
     <Compile Include="Abstract\IStatisticsModel.cs" />
@@ -125,7 +146,6 @@
     <Compile Include="Models\StatisticsModel.cs" />
     <Compile Include="Entity\UserEntity.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -139,8 +159,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201801241559225_initial.resx">
-      <DependentUpon>201801241559225_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801272142589_initial.resx">
+      <DependentUpon>201801272142589_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801272144264_second.resx">
+      <DependentUpon>201801272144264_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801272158059_third.resx">
+      <DependentUpon>201801272158059_third.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801272216507_fourth.resx">
+      <DependentUpon>201801272216507_fourth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801272333569_poprawaLiterowek.resx">
+      <DependentUpon>201801272333569_poprawaLiterowek.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

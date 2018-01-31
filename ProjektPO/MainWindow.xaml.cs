@@ -13,18 +13,65 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjektPO.Models;
+using ProjektPO.Entity;
+using ProjektPO.ViewModels;
 
 namespace ProjektPO
 {
-    /// <summary>
+    /// <summary>fc
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
+            App.Current.Properties["MainWindow"] = this;
         }
+
+        private void login_Click(object sender, RoutedEventArgs e)
+        {
+            string username_ = username.Text;
+            string password_ = password.Password;
+            if (String.IsNullOrEmpty(username_) || String.IsNullOrEmpty(password_))
+            {
+                MessageBox.Show("No username or password", "Error", MessageBoxButton.OK);
+            }
+            else
+            {
+                /*SecondaryWindow window = new SecondaryWindow();
+                App.Current.Properties["SecondaryWindow"] = window;
+                ((MainWindow)App.Current.Properties["MainWindow"]).Hide();
+                window.Show();*/
+            }
+        }
+
+        private void register_Click(object sender, RoutedEventArgs e)
+        {
+            string username_ = username.Text;
+            string password_ = password.Password;
+            if (String.IsNullOrEmpty(username_) || String.IsNullOrEmpty(password_))
+            {
+                MessageBox.Show("No username or password", "Error", MessageBoxButton.OK);
+            }
+            else
+            {
+                var user = new UserViewModel
+                {
+                    Name = username_,
+                    Password = password_
+                };
+                if (user.Register())
+                {
+                    MessageBox.Show("Your account has been successfully registered.", "Registration", MessageBoxButton.OK);
+                }
+                else
+                {
+                    MessageBox.Show("This username is already taken.", "Registration", MessageBoxButton.OK);
+                }
+            }
+        }
+       
     }
 }
