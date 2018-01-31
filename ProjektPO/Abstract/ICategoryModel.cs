@@ -12,7 +12,6 @@ namespace ProjektPO.Abstract
     {
         void AddCategory(CategoryViewModel categoryViewModel, int userId);        
         void DeleteCategory(int categoryId);
-        void EditCategory(CategoryViewModel categoryViewModel);
         void ReadCategory(string categoryId);
         void DeleteCategoryItem();     
         void AddCategoryItem();
