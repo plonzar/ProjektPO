@@ -62,14 +62,14 @@ namespace ProjektPO
                     Name = username_,
                     Password = password_
                 };
-                if (user.Register())
-                {
-                    MessageBox.Show("Your account has been successfully registered.", "Registration", MessageBoxButton.OK);
-                }
-                else
-                {
-                    MessageBox.Show("This username is already taken.", "Registration", MessageBoxButton.OK);
-                }
+                //if (user.Register())
+                //{
+                //    MessageBox.Show("Your account has been successfully registered.", "Registration", MessageBoxButton.OK);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("This username is already taken.", "Registration", MessageBoxButton.OK);
+                //}
             }
         }
        
