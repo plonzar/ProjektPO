@@ -26,6 +26,38 @@ namespace ProjektPO
             InitializeComponent();
         }
 
+        private void AddCategoryClick(object sender, RoutedEventArgs e)
+        {
+            AddCategory addCategory = new AddCategory();
+            this.IsEnabled = false;
+            addCategory.Owner = this;
+            addCategory.Show();
+        }
+
+        private void AddItemClick(object sender, RoutedEventArgs e)
+        {
+            AddItem addItem = new AddItem();
+            this.IsEnabled = false;
+            addItem.Owner = this;
+            addItem.Show();
+        }
+
+        private void DeleteCategoryClick(object sender, RoutedEventArgs e)
+        {
+            DeleteCategory deleteCategory = new DeleteCategory();
+            this.IsEnabled = false;
+            deleteCategory.Owner = this;
+            deleteCategory.Show();
+        }
+
+        private void DeleteItemClick(object sender, RoutedEventArgs e)
+        {
+            DeleteItem deleteItem = new DeleteItem();
+            this.IsEnabled = false;
+            deleteItem.Owner = this;
+            deleteItem.Show();
+        }
+
         private void LogoutClick(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -34,18 +66,18 @@ namespace ProjektPO
 
         private void EditUsernameClick(object sender, RoutedEventArgs e)
         {
-            EditUsername edit_username = new EditUsername();
+            EditUsername editUsername = new EditUsername();
             this.IsEnabled = false;
-            edit_username.Owner = this;
-            edit_username.Show();
+            editUsername.Owner = this;
+            editUsername.Show();
         }
 
         private void EditPasswordClick(object sender, RoutedEventArgs e)
         {
-            EditPassword edit_password = new EditPassword();
+            EditPassword editPassword = new EditPassword();
             this.IsEnabled = false;
-            edit_password.Owner = this;
-            edit_password.Show();
+            editPassword.Owner = this;
+            editPassword.Show();
         }   
 
         private void DeleteAccountClick(object sender, RoutedEventArgs e)
