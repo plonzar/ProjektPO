@@ -6,11 +6,11 @@ namespace ProjektPO.Abstract
 {
     public interface IStatisticsModel
     {
-        List<Point> GetLinearIncome(DateTime dateFrom, DateTime dateTo, int categoryId);
-        List<Point> GetLinearOutcome(DateTime dateFrom, DateTime dateTo, int categoryId);
-        List<Point> GetLinearProfit(DateTime dateFrom, DateTime dateTo, int categoryId);
-        List<DiagramItem> GetIncomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId);
-        List<DiagramItem> GetOutcomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId);
+        List<Point> GetLinearIncome(DateTime dateFrom, DateTime dateTo, int categoryId, int userId);
+        List<Point> GetLinearOutcome(DateTime dateFrom, DateTime dateTo, int categoryId, int userId);
+        List<Point> GetLinearProfit(DateTime dateFrom, DateTime dateTo, int categoryId, int userId);
+        List<DiagramItem> GetIncomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId, int userId);
+        List<DiagramItem> GetOutcomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId, int userId);
 
     }
 }

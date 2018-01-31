@@ -10,11 +10,22 @@ using ProjektPO.ViewModels;
 
 namespace ProjektPO.Models
 {
+<<<<<<< HEAD
     public class OperationModel : IOperationModel//heheszki_2
     {
         private ApplicationDB appContext = new ApplicationDB();
         public void AddOperation(OperationViewModel newOperationViewModel, int userId)// 
         {
+=======
+    public class OperationModel: IOperationModel
+    public class OperationModel : IOperationModel//2
+    {
+        public void AddOperation(Action newOperation)
+        private ApplicationDB appContext = new ApplicationDB();
+        public void AddOperation(OperationViewModel newOperationViewModel, int userId)
+        {
+
+>>>>>>> origin/stage
             if (newOperationViewModel != null)
             {
                 OperationEntity newOperation = new OperationEntity()
@@ -33,14 +44,25 @@ namespace ProjektPO.Models
             appContext.SaveChanges();
         }
 
+<<<<<<< HEAD
         public List<OperationViewModel> GetList(int userId)//  -> zwraca list<operationviewmodel>
         {
+=======
+        public List<OperationEntity> GetList()
+        public List<OperationViewModel> GetList(int userId)//  -> zwraca list<operationviewmodel>
+        {
+            List<OperationEntity> temp = new List<OperationEntity>();
+>>>>>>> origin/stage
             List<OperationViewModel> viewModelsList = new List<OperationViewModel>();
             var entitiesList = appContext.Operations
                                  .Where(o => o.UserEntityId == userId)
                                  .ToList();
 
+<<<<<<< HEAD
             foreach(var entity in entitiesList)
+=======
+            foreach (var entity in entitiesList)
+>>>>>>> origin/stage
             {
                 viewModelsList.Add(new OperationViewModel()
                 {
@@ -51,6 +73,7 @@ namespace ProjektPO.Models
                     Type = entity.Type,
                     UserId = entity.UserEntityId.ToString(),
                     Note = entity.Note
+<<<<<<< HEAD
                 } );
             }
 
@@ -58,6 +81,17 @@ namespace ProjektPO.Models
         }
 
         public void Update(OperationViewModel updatedOperation)//operation view model
+=======
+                });
+            }
+
+            return temp;
+            return viewModelsList;
+        }
+
+        public void Update(Action newOperation)
+        public void Update(OperationViewModel updatedOperation)
+>>>>>>> origin/stage
         {
             var updatedEntity = appContext.Operations.Find(updatedOperation.Id);
 
@@ -72,6 +106,10 @@ namespace ProjektPO.Models
             appContext.SaveChanges();
         }
 
+<<<<<<< HEAD
+=======
+        public void Delete()
+>>>>>>> origin/stage
         public void Delete(int operationId)
         {
             var deletedOperation = appContext.Operations.Find(operationId);
