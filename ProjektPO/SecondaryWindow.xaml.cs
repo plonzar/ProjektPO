@@ -1,4 +1,5 @@
-﻿using ProjektPO.ViewModels;
+﻿using ProjektPO.Model;
+using ProjektPO.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +53,7 @@ namespace ProjektPO
             MessageBoxResult answer = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButton.YesNo);
             if (answer == MessageBoxResult.Yes)
             {
-                var user = new UserViewModel();
+                var user = new UserModel();
                 user.DeleteAccount();
                 this.Close();
                 ((MainWindow)App.Current.Properties["MainWindow"]).Show();

@@ -38,13 +38,13 @@ namespace ProjektPO
             }
             else
             {
-                var user = new UserViewModel
+                var userViewModel = new UserViewModel
                 {
                     Name = username_,
                     Password = password_
                 };
-
-                if (user.Login())
+                var user = new UserModel();
+                if (user.Login(userViewModel))
                 {
                     SecondaryWindow window = new SecondaryWindow();
                     App.Current.Properties["SecondaryWindow"] = window;
@@ -68,12 +68,13 @@ namespace ProjektPO
             }
             else
             {
-                var user = new UserViewModel
+                var userViewModel = new UserViewModel
                 {
                     Name = username_,
                     Password = password_
                 };
-                if (user.Register())
+                var user = new UserModel();
+                if (user.Register(userViewModel))
                 {
                     MessageBox.Show("Your account has been successfully registered.", "Registration", MessageBoxButton.OK);
                 }

@@ -1,5 +1,6 @@
 ﻿using ProjektPO.Abstract;
 using ProjektPO.Entity;
+using ProjektPO.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,16 @@ namespace ProjektPO.Model
     {
         private ApplicationDB _context;
 
-        public bool Register(string name, string password)
+        public bool Register(UserViewModel user)
         {
             _context = new ApplicationDB();
-            var dbEntry = _context.Users.FirstOrDefault(user => user.Name == name);
+            var dbEntry = _context.Users.FirstOrDefault(x => x.Name == user.Name);
             if (dbEntry == null)
             {
                 var userEntity = new UserEntity
                 {
-                    Name = name,
-                    Password = password
+                    Name = user.Name,
+                    Password = user.Password
                 };
                 _context.Users.Add(userEntity);
                 _context.SaveChanges();
@@ -35,10 +36,10 @@ namespace ProjektPO.Model
             }
         }
 
-        public bool Login(string name, string password)
+        public bool Login(UserViewModel user)
         {
             _context = new ApplicationDB();
-            var dbEntry = _context.Users.FirstOrDefault(user => user.Name == name && user.Password == password);
+            var dbEntry = _context.Users.FirstOrDefault(x => x.Name == user.Name && x.Password == user.Password);
             if (dbEntry == null)
             {
                 _context.Dispose();

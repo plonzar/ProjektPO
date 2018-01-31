@@ -1,4 +1,5 @@
-﻿using ProjektPO.ViewModels;
+﻿using ProjektPO.Model;
+using ProjektPO.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace ProjektPO
 
             if (!String.IsNullOrEmpty(newPassword_))
             {
-                var user = new UserViewModel();
+                var user = new UserModel();
                 user.EditPassword(newPassword_);
                 MessageBox.Show("Your password has been changed.", "Confirmation", MessageBoxButton.OK);
             }
