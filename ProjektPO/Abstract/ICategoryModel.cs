@@ -10,11 +10,6 @@ namespace ProjektPO.Abstract
 {
     public interface ICategoryModel
     {
-        void AddCategory(CategoryViewModel categoryViewModel, int userId);        
-        void DeleteCategory(int categoryId);
-        void ReadCategory(string categoryId);
-        void AddCategoryItem();
-        void ReadCategoryItems(CategoryEntity category);
         bool AddCategory(CategoryViewModel categoryViewModel, int userId);        
         bool DeleteCategory(int categoryId, int userId);
         bool EditCategory(CategoryViewModel categoryViewModel, int userId);
