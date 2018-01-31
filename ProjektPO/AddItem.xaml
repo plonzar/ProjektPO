@@ -10,14 +10,13 @@
         VerticalAlignment="Center"
         Closing="AddItem_Closing"
         ResizeMode="NoResize"
-        Title="Add Item" Height="200" Width="300">
+        Title="Add Item" Height="300" Width="300">
     <Grid Height="172" VerticalAlignment="Top" HorizontalAlignment="Right" Width="294">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <TextBox x:Name="addItem" Margin="32,20,22,122" BorderThickness="1" BorderBrush="Black" FontSize="18" Grid.ColumnSpan="2"/>
-        <Button x:Name="confirm" Content="Confirm" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="82,73,72,69" Click="ConfirmClick" Grid.ColumnSpan="2"/>
-        <Button x:Name="return" Content="Return" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="82,113,72,29" Click="ReturnClick" Grid.ColumnSpan="2"/>
+        <Label Content="Category of item" FontSize="25" FontFamily="Raleway" Margin="52,4,47,129"/>
+        <Label Content="Item name" FontSize="25" FontFamily="Raleway" Margin="87,72,79,55"/>
+        <TextBox x:Name="itemToAdd" Margin="30,110,24,32" BorderThickness="1" BorderBrush="Black" FontSize="18"/>
+        <TextBox x:Name="categoryOfItem" Margin="30,44,24,98" BorderThickness="1" BorderBrush="Black" FontSize="18"/>
+        <Button x:Name="confirm" Content="Confirm" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="80,168,74,-26" Click="ConfirmClick" Height="30" VerticalAlignment="Top"/>
+        <Button x:Name="return" Content="Return" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="79,216,75,-74" Click="ReturnClick"/>
     </Grid>
 </Window>

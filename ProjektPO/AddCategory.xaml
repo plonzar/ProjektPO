@@ -16,7 +16,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="addCategory" Margin="32,20,22,122" BorderThickness="1" BorderBrush="Black" FontSize="18" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="categoryToAdd" Margin="32,20,22,122" BorderThickness="1" BorderBrush="Black" FontSize="18" Grid.ColumnSpan="2"/>
         <Button x:Name="confirm" Content="Confirm" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="82,73,72,69" Click="ConfirmClick" Grid.ColumnSpan="2"/>
         <Button x:Name="return" Content="Return" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="82,113,72,29" Click="ReturnClick" Grid.ColumnSpan="2"/>
     </Grid>
