@@ -17,6 +17,13 @@ namespace ProjektPO.Abstract
         void DeleteCategoryItem();     
         void AddCategoryItem();
         void ReadCategoryItems(CategoryEntity category);
+        bool AddCategory(CategoryViewModel categoryViewModel, int userId);        
+        bool DeleteCategory(int categoryId, int userId);
+        bool EditCategory(CategoryViewModel categoryViewModel, int userId);
+        CategoryViewModel ReadCategory(string categoryName, int userId);
+        bool DeleteCategoryItem(int categoryId, int userId);     
+        bool AddCategoryItem(CategoryItemViewModel categoryItemViewModel, int categoryId,int userId);
+        List<CategoryItemViewModel> ReadCategoryItems(int categoryId);
 
     }
 }

@@ -62,7 +62,7 @@ namespace ProjektPO.Models
             
         }
 
-        public bool DeleteCategory(int categoryId, int userId)//             /nie działa
+        public bool DeleteCategory(int categoryId, int userId)
         {
             if (appContext.Categories.Where( c => c.UserEntityId == userId).Any( c => c.Id == categoryId))
             {
