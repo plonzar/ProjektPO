@@ -95,6 +95,11 @@ namespace ProjektPO
                 //}
             }
         }
-       
+
+        private void OpenCharts_Click(object sender, RoutedEventArgs e)
+        {
+            ChartsWindow openChartWindow = new ChartsWindow();
+            openChartWindow.Show();
+        }
     }
 }

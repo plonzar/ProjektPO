@@ -137,8 +137,6 @@ C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\bin\Debug\de\DevExpress.Pdf
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\bin\Debug\es\DevExpress.Pdf.v17.2.Core.resources.dll
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\bin\Debug\ja\DevExpress.Pdf.v17.2.Core.resources.dll
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\bin\Debug\ru\DevExpress.Pdf.v17.2.Core.resources.dll
-C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\Views\Charts.g.cs
-C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\Views\Charts.baml
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\bin\Debug\DevExpress.Charts.v17.2.Core.dll
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\bin\Debug\DevExpress.Xpf.Charts.v17.2.dll
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\bin\Debug\DevExpress.Xpf.Printing.v17.2.dll
@@ -193,5 +191,7 @@ C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\bin\Debug\de\DevExpress.Off
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\bin\Debug\es\DevExpress.Office.v17.2.Core.resources.dll
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\bin\Debug\ja\DevExpress.Office.v17.2.Core.resources.dll
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\bin\Debug\ru\DevExpress.Office.v17.2.Core.resources.dll
-C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\ProjektPO.exe.licenses
+C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\ChartsWindow.g.cs
+C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\ChartsWindow.baml
+C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\ProjektPO_Content.g.cs

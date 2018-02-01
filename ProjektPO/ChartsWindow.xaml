@@ -1,15 +1,14 @@
-﻿<UserControl
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:ViewModels="clr-namespace:ProjektPO.ViewModels"
-             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" x:Class="ProjektPO.Views.Charts"
-             mc:Ignorable="d"
-             DataContext="{dxmvvm:ViewModelSource Type={x:Type ViewModels:ChartsViewModel}}"
-             d:DesignHeight="500" d:DesignWidth="700">
-    <Grid>
-        <dxc:ChartControl HorizontalAlignment = "Left" Height="240" VerticalAlignment="Top" Width="666">
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektPO"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" x:Class="ProjektPO.ChartsWindow"
+        mc:Ignorable="d"
+        Title="ChartsWindow" Height="565.2" Width="795.2">
+    <Grid Margin="0,0,128.6,32.4">
+<dxc:ChartControl HorizontalAlignment = "Left" Height="240" VerticalAlignment="Top" Width="666">
             <dxc:ChartControl.Legends>
                 <dxc:Legend MarkerMode = "CheckBoxAndMarker" Margin="0,-40.2,0,39.6" Orientation="Horizontal" HorizontalPosition="Center"/>
             </dxc:ChartControl.Legends>
@@ -52,5 +51,6 @@
                 </dxc:PieSeries3D>
             </dxc:SimpleDiagram3D>
         </dxc:ChartControl>
+
     </Grid>
-</UserControl>
+</Window>

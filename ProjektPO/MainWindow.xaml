@@ -22,5 +22,6 @@
         <PasswordBox x:Name="password" PasswordChar="*" Width="280" Height="30" Margin="183,0,56,195" BorderThickness="1" BorderBrush="Black" FontSize="18" VerticalAlignment="Bottom"/>
         <Button x:Name="login" Width="140" Height="30" Content="Login" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="0,183,190,134" HorizontalAlignment="Right" Click="LoginClick"/>
         <Button x:Name="register" Width="140" Height="30" Content="Register" Background="GhostWhite" BorderBrush="Black" FontSize="18" VerticalAlignment="Center" Margin="189,224,190,93" Click="RegisterClick"/>
+        <Button x:Name="OpenCharts" Content="OpenChartsTMP" HorizontalAlignment="Left" Height="63" Margin="393,224,0,0" VerticalAlignment="Top" Width="116" Click="OpenCharts_Click"/>
     </Grid>
 </Window>
