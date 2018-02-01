@@ -14,11 +14,11 @@ namespace ProjektPO.Abstract
         bool DeleteCategory(int categoryId, int userId);
         bool EditCategory(CategoryViewModel categoryViewModel, int userId);
         CategoryViewModel ReadCategory(string categoryName, int userId);
-<<<<<<< HEAD
+
         bool DeleteCategoryItem(int categoryId, int userId);     
-=======
+
         bool DeleteCategoryItem(string categoryItemName, int userId);     
->>>>>>> origin/Wojciech_Skwarun
+
         bool AddCategoryItem(CategoryItemViewModel categoryItemViewModel, int categoryId,int userId);
         List<CategoryItemViewModel> ReadCategoryItems(int categoryId);
 

@@ -7,10 +7,11 @@ using System.Linq;
 using System.Windows;
 using System.Threading.Tasks;
 using ProjektPO.ViewModels;
+using ProjektPO.Model;
 
 namespace ProjektPO.Models
 {
-    public class CategoryModel: ICategoryModel
+    public class CategoryModel//: ICategoryModel
     {
         private ApplicationDB appContext = new ApplicationDB();
 
@@ -22,16 +23,16 @@ namespace ProjektPO.Models
             {
                 CategoryEntity categoryEntity = new CategoryEntity()
                 {
-<<<<<<< HEAD
+
                     Id = categoryViewModel.Id,
                     UserEntityId = userId,
                     Name = categoryViewModel.Name,
                     Categories = categoryViewModel.CategoryItems.ToList()
-=======
-                    UserEntityId = userId,
-                    Name = categoryViewModel.Name,
-                    Categories = categoryViewModel.CategoryItems
->>>>>>> origin/Wojciech_Skwarun
+
+                    //UserEntityId = userId,
+                    //Name = categoryViewModel.Name,
+                    //Categories = categoryViewModel.CategoryItems
+
                 };
                 appContext.Categories.Add(categoryEntity);
                 appContext.SaveChanges();
@@ -70,21 +71,18 @@ namespace ProjektPO.Models
 
         public bool DeleteCategory(int categoryId, int userId)//             /nie działa
         {
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/Wojciech_Skwarun
             if (appContext.Categories.Where( c => c.UserEntityId == userId).Any( c => c.Id == categoryId))
             {
                 var deletedCategoryItems = appContext.CategoryItems.Where(c => c.CategoryEntityId == categoryId).ToList();MessageBox.Show(deletedCategoryItems.Count().ToString());
                 foreach(var item in deletedCategoryItems)
                 {
                     
-<<<<<<< HEAD
-                    DeleteCategoryItem(item.Id, userId);
-=======
+
+                    DeleteCategoryItem(item.Id.ToString(), userId);
+
                     DeleteCategoryItem(item.Name, userId);
->>>>>>> origin/Wojciech_Skwarun
+
                 }
                 appContext.SaveChanges();
                 var deletedCategory = appContext.Categories.Where(c => c.UserEntityId == userId).FirstOrDefault( c => c.Id == categoryId);
@@ -99,20 +97,13 @@ namespace ProjektPO.Models
                 
         }
 
-<<<<<<< HEAD
-        public bool DeleteCategoryItem(int categoryItemId, int userId)
-        {
-            if(appContext.CategoryItems.Where( u => u.UserEntityId == userId).Any( i => i.Id == categoryItemId))
-            {
-                var deletedCategoryItem = appContext.CategoryItems.Find(categoryItemId);
-                MessageBox.Show("test");
-=======
+
         public bool DeleteCategoryItem(string categoryItemName, int userId)
         {
             if(appContext.CategoryItems.Where( u => u.UserEntityId == userId).Any( i => i.Name == categoryItemName))
             {
                 var deletedCategoryItem = appContext.CategoryItems.FirstOrDefault(u => u.UserEntityId == userId && u.Name == categoryItemName);
->>>>>>> origin/Wojciech_Skwarun
+
                 appContext.CategoryItems.Remove(deletedCategoryItem);
                 appContext.SaveChanges();
                 return true;
@@ -177,11 +168,9 @@ namespace ProjektPO.Models
                 {
                     CategoryId = entity.CategoryEntityId,
                     Name = entity.Name,
-<<<<<<< HEAD
+
                     IncludeInEstimates = entity.IncludeInEstimates
-=======
-                    //IncludeInEstimates = entity.IncludeInEstimates
->>>>>>> origin/Wojciech_Skwarun
+
                     
                 };
                 viewModelsList.Add(categoryViewModel);

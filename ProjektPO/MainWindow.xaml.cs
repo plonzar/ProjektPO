@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ProjektPO.Models;
 using ProjektPO.Entity;
-using ProjektPO.ViewModels;
+
 
 namespace ProjektPO
 {
@@ -42,12 +42,7 @@ namespace ProjektPO
             }
             else
             {
-<<<<<<< HEAD
-                /*SecondaryWindow window = new SecondaryWindow();
-                App.Current.Properties["SecondaryWindow"] = window;
-                ((MainWindow)App.Current.Properties["MainWindow"]).Hide();
-                window.Show();*/
-=======
+
                 var userViewModel = new UserViewModel
                 {
                     Name = username_,
@@ -56,16 +51,16 @@ namespace ProjektPO
                 var user = new UserModel();
                 if (user.Login(userViewModel))
                 {
-                    SecondaryWindow window = new SecondaryWindow();
-                    App.Current.Properties["SecondaryWindow"] = window;
-                    ((MainWindow)App.Current.Properties["MainWindow"]).Hide();
-                    window.Show();
+                    //SecondaryWindow window = new SecondaryWindow();
+                    //App.Current.Properties["SecondaryWindow"] = window;
+                    //((MainWindow)App.Current.Properties["MainWindow"]).Hide();
+                    //window.Show();
                 }
                 else
                 {
                     MessageBox.Show("Wrong username and/or password.", "Login failed", MessageBoxButton.OK);
                 }
->>>>>>> origin/Wojciech_Skwarun
+
             }
         }
 
@@ -79,17 +74,18 @@ namespace ProjektPO
             }
             else
             {
-<<<<<<< HEAD
-                var user = new UserViewModel
-=======
+
+                var user = new UserViewModel();
+
                 var userViewModel = new UserViewModel
->>>>>>> origin/Wojciech_Skwarun
+
                 {
                     Name = username_,
                     Password = password_
                 };
-<<<<<<< HEAD
-                //if (user.Register())
+
+                //var user = new UserModel();
+                //if (user.Register(userViewModel))
                 //{
                 //    MessageBox.Show("Your account has been successfully registered.", "Registration", MessageBoxButton.OK);
                 //}
@@ -97,17 +93,6 @@ namespace ProjektPO
                 //{
                 //    MessageBox.Show("This username is already taken.", "Registration", MessageBoxButton.OK);
                 //}
-=======
-                var user = new UserModel();
-                if (user.Register(userViewModel))
-                {
-                    MessageBox.Show("Your account has been successfully registered.", "Registration", MessageBoxButton.OK);
-                }
-                else
-                {
-                    MessageBox.Show("This username is already taken.", "Registration", MessageBoxButton.OK);
-                }
->>>>>>> origin/Wojciech_Skwarun
             }
         }
        
