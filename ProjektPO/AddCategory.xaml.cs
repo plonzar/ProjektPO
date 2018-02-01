@@ -1,4 +1,4 @@
-﻿using ProjektPO.Model;
+﻿using ProjektPO.Models;
 using ProjektPO.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -28,7 +28,29 @@ namespace ProjektPO
 
         private void ConfirmClick(object sender, RoutedEventArgs e)
         {
-     
+            string category = categoryToAdd.Text;
+            if (!String.IsNullOrEmpty(category))
+            {
+                var categoryViewModel = new CategoryViewModel
+                {
+                    Name = category,
+                    UserId = ((int)App.Current.Properties["loggedUserID"]).ToString(),
+                    CategoryItems = null
+                };
+                var categoryModel = new CategoryModel();
+                if (categoryModel.AddCategory(categoryViewModel, (int)App.Current.Properties["loggedUserID"]))
+                {
+                    MessageBox.Show("A new category has been added.", "Confirmation");
+                }
+                else
+                {
+                    MessageBox.Show("This category name is already taken.", "Error", MessageBoxButton.OK); 
+                }
+            }
+            else
+            {
+                MessageBox.Show("No category name given.", "Error", MessageBoxButton.OK);
+            }
         }
 
         private void ReturnClick(object sender, RoutedEventArgs e)

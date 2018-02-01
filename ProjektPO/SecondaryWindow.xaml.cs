@@ -58,6 +58,11 @@ namespace ProjektPO
             deleteItem.Show();
         }
 
+        private void EditCategoryClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void LogoutClick(object sender, RoutedEventArgs e)
         {
             this.Close();

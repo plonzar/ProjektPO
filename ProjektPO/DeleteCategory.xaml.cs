@@ -1,4 +1,5 @@
-﻿using ProjektPO.Model;
+﻿using ProjektPO.Entity;
+using ProjektPO.Model;
 using ProjektPO.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -21,9 +22,19 @@ namespace ProjektPO
     /// </summary>
     public partial class DeleteCategory : Window
     {
+        //public List<string> CategoryNames { get; set; }
         public DeleteCategory()
         {
             InitializeComponent();
+            //placeholder na ReadCategory()
+            var _context = new ApplicationDB();
+            List<string> CategoryNames = new List<string>();
+            var categories_ = _context.Categories.ToList();
+            foreach (var category in categories_)
+            {
+                CategoryNames.Add(category.Name);
+            }
+            categories.ItemsSource = CategoryNames;
         }
 
         private void ConfirmClick(object sender, RoutedEventArgs e)
@@ -45,6 +56,5 @@ namespace ProjektPO
         }
 
     }
-
 
 }

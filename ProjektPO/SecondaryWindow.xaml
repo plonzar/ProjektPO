@@ -17,6 +17,7 @@
         <Button x:Name="addItem" Width="140" Height="30" Content="Add Item" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="215,25,37,315" Click="AddItemClick"/>
         <Button x:Name="deleteCategory" Width="140" Height="30" Content="Delete Category" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="37,67,215,273" Click="DeleteCategoryClick"/>
         <Button x:Name="deleteItem" Width="140" Height="30" Content="Delete Item" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="215,67,37,273" Click="DeleteItemClick"/>
+        <Button x:Name="editCategory" Width="140" Height="30" Content="Edit Category" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="37,109,215,231" Click="EditCategoryClick"/>
         <Button x:Name="logout" Width="140" Height="30" Content="Logout" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="37,315,215,25" Click="LogoutClick"/>
         <Button x:Name="editUsername" Width="140" Height="30" Content="Edit Username" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="37,273,215,67" Click="EditUsernameClick"/>
         <Button x:Name="editPassword" Width="140" Height="30" Content="Edit Password" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="215,273,37,67" Click="EditPasswordClick"/>

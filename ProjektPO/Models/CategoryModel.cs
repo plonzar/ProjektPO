@@ -22,10 +22,9 @@ namespace ProjektPO.Models
             {
                 CategoryEntity categoryEntity = new CategoryEntity()
                 {
-                    Id = categoryViewModel.Id,
                     UserEntityId = userId,
                     Name = categoryViewModel.Name,
-                    Categories = categoryViewModel.CategoryItems.ToList()
+                    Categories = categoryViewModel.CategoryItems
                 };
                 appContext.Categories.Add(categoryEntity);
                 appContext.SaveChanges();
@@ -155,7 +154,7 @@ namespace ProjektPO.Models
                 {
                     CategoryId = entity.CategoryEntityId,
                     Name = entity.Name,
-                    IncludeInEstimates = entity.IncludeInEstimates
+                    //IncludeInEstimates = entity.IncludeInEstimates
                     
                 };
                 viewModelsList.Add(categoryViewModel);
