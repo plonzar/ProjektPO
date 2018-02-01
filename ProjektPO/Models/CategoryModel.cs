@@ -62,7 +62,6 @@ namespace ProjektPO.Models
             
         }
 
-        public bool DeleteCategory(int categoryId, int userId)//             /nie działa
         {
             if (appContext.Categories.Where( c => c.UserEntityId == userId).Any( c => c.Id == categoryId))
             {
@@ -103,7 +102,6 @@ namespace ProjektPO.Models
 
         public bool EditCategory(CategoryViewModel categoryViewModel, int userId)
         {
-            /*if (categoryViewModel != null &&
                !string.IsNullOrEmpty(categoryViewModel.Name) &&
                appContext.Categories.Where(u => u.UserEntityId == userId).Any(i => i.Id == categoryViewModel.Id))
             {
@@ -117,7 +115,6 @@ namespace ProjektPO.Models
                 return false;
             }
 
-            */
             return true;
         }
 
