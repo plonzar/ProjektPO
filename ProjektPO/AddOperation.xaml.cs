@@ -1,6 +1,6 @@
-﻿using ProjektPO.Entity;
-using ProjektPO.Models;
+﻿using ProjektPO.Models;
 using ProjektPO.ViewModels;
+using ProjektPO.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +18,17 @@ using System.Windows.Shapes;
 namespace ProjektPO
 {
     /// <summary>
-    /// Logika interakcji dla klasy DeleteCategory.xaml
+    /// Logika interakcji dla klasy AddOperation.xaml
     /// </summary>
-    public partial class DeleteCategory : Window
+    public partial class AddOperation : Window
     {
-        public DeleteCategory()
+        public AddOperation()
         {
             InitializeComponent();
+            day.ItemsSource = Enumerable.Range(1, 31);
+            month.ItemsSource = Enumerable.Range(1, 12);
+            year.ItemsSource = Enumerable.Range(0, 100).Select(x => x + 2000);
+            type.ItemsSource = new List<String>{"Income", "Outcome"};
             var _context = new ApplicationDB();
             List<string> CategoryNames = new List<string>();
             var categories_ = _context.Categories.ToList();
@@ -32,27 +36,29 @@ namespace ProjektPO
             {
                 CategoryNames.Add(category.Name);
             }
-            categories.ItemsSource = CategoryNames;
+            categoriesCB.ItemsSource = CategoryNames;
         }
 
         private void ConfirmClick(object sender, RoutedEventArgs e)
         {
-            var category = categories.SelectedValue.ToString();
-            if (!String.IsNullOrEmpty(category))
+
+        }
+
+        private void CategoriesSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var _context = new ApplicationDB();
+            var categoryModel = new CategoryModel();
+            var category = categoryModel.ReadCategory(categoriesCB.SelectedValue.ToString(), (int)App.Current.Properties["loggedUserID"]);
+            var items = _context.CategoryItems;
+            List<String> itemNames = new List<string>();
+            foreach (var item in items)
             {
-                var categoryModel = new CategoryModel();
-                var category_ = categoryModel.ReadCategory(category, (int)App.Current.Properties["loggedUserID"]);
-                categoryModel.DeleteCategory(category_.Id, (int)App.Current.Properties["loggedUserID"]);
-                MessageBox.Show("Selected category was removed.", "Confirmation", MessageBoxButton.OK);
-                var _context = new ApplicationDB();
-                List<string> CategoryNames = new List<string>();
-                var categories_ = _context.Categories.ToList();
-                foreach (var cat in categories_)
+                if (item.CategoryEntityId == category.Id && item.UserEntityId == (int)App.Current.Properties["loggedUserID"])
                 {
-                    CategoryNames.Add(cat.Name);
+                    itemNames.Add(item.Name);
                 }
-                categories.ItemsSource = CategoryNames;
             }
+            itemsCB.ItemsSource = itemNames;
         }
 
         private void ReturnClick(object sender, RoutedEventArgs e)
@@ -62,12 +68,10 @@ namespace ProjektPO
             this.Close();
         }
 
-        private void DeleteCategory_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void AddOperation_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             this.Owner = null;
             ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = true;
         }
-
     }
-
 }
