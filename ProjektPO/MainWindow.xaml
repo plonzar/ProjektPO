@@ -20,7 +20,7 @@
         <Label Content=":" FontSize="25" Margin="148,117,344,195" FontFamily="Raleway"/>
         <TextBox x:Name="username" Width="280" Height="30"  Margin="183,0,56,234" BorderThickness="1" BorderBrush="Black" FontSize="18" VerticalAlignment="Bottom"/>
         <PasswordBox x:Name="password" PasswordChar="*" Width="280" Height="30" Margin="183,0,56,195" BorderThickness="1" BorderBrush="Black" FontSize="18" VerticalAlignment="Bottom"/>
-        <Button x:Name="login" Width="140" Height="30" Content="Login" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="0,183,190,134" HorizontalAlignment="Right" Click="login_Click"/>
-        <Button x:Name="register" Width="140" Height="30" Content="Register" Background="GhostWhite" BorderBrush="Black" FontSize="18" VerticalAlignment="Center" Margin="189,224,190,93" Click="register_Click"/>
+        <Button x:Name="login" Width="140" Height="30" Content="Login" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="0,183,190,134" HorizontalAlignment="Right" Click="LoginClick"/>
+        <Button x:Name="register" Width="140" Height="30" Content="Register" Background="GhostWhite" BorderBrush="Black" FontSize="18" VerticalAlignment="Center" Margin="189,224,190,93" Click="RegisterClick"/>
     </Grid>
 </Window>

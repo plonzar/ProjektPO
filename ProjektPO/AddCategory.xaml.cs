@@ -1,4 +1,4 @@
-﻿using ProjektPO.Model;
+﻿using ProjektPO.Models;
 using ProjektPO.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,35 +17,39 @@ using System.Windows.Shapes;
 namespace ProjektPO
 {
     /// <summary>
-    /// Logika interakcji dla klasy EditUsername.xaml
+    /// Logika interakcji dla klasy AddCategory.xaml
     /// </summary>
-    public partial class EditUsername : Window
+    public partial class AddCategory : Window
     {
-        public EditUsername()
+        public AddCategory()
         {
             InitializeComponent();
         }
 
         private void ConfirmClick(object sender, RoutedEventArgs e)
         {
-            string newUsername_ = newUsername.Text;
-
-            if (!String.IsNullOrEmpty(newUsername_))
+            string category = categoryToAdd.Text;
+            if (!String.IsNullOrEmpty(category))
             {
-                var user = new UserModel();
-                if (user.EditUsername(newUsername_))
+                var categoryViewModel = new CategoryViewModel
                 {
-                    MessageBox.Show("Your username has been changed.", "Confirmation", MessageBoxButton.OK);
+                    Name = category,
+                    UserId = ((int)App.Current.Properties["loggedUserID"]).ToString(),
+                    CategoryItems = null
+                };
+                var categoryModel = new CategoryModel();
+                if (categoryModel.AddCategory(categoryViewModel, (int)App.Current.Properties["loggedUserID"]))
+                {
+                    MessageBox.Show("A new category has been added.", "Confirmation");
                 }
                 else
                 {
-                    MessageBox.Show("This username is already taken.", "Error", MessageBoxButton.OK);
+                    MessageBox.Show("This category name is already taken.", "Error", MessageBoxButton.OK); 
                 }
             }
-
             else
             {
-                MessageBox.Show("No username given.", "Error", MessageBoxButton.OK);
+                MessageBox.Show("No category name given.", "Error", MessageBoxButton.OK);
             }
         }
 
@@ -56,7 +60,7 @@ namespace ProjektPO
             this.Close();
         }
 
-        private void EditUsername_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void AddCategory_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             this.Owner = null;
             ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = true;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjektPO.Model;
+using ProjektPO.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,19 +26,33 @@ namespace ProjektPO
             InitializeComponent();
         }
 
-        private void confirm_Click(object sender, RoutedEventArgs e)
+        private void ConfirmClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Your password has been changed.", "Confirmation", MessageBoxButton.OK);
+            string newPassword_ = newPassword.Password;
+
+            if (!String.IsNullOrEmpty(newPassword_))
+            {
+                var user = new UserModel();
+                user.EditPassword(newPassword_);
+                MessageBox.Show("Your password has been changed.", "Confirmation", MessageBoxButton.OK);
+            }
+
+            else
+            {
+                MessageBox.Show("No password given.", "Error", MessageBoxButton.OK);
+            }
         }
 
-        private void return_Click(object sender, RoutedEventArgs e)
+        private void ReturnClick(object sender, RoutedEventArgs e)
         {
+            this.Owner = null;
             ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = true;
             this.Close();
         }
 
         private void EditPassword_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            this.Owner = null;
             ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = true;
         }
     }

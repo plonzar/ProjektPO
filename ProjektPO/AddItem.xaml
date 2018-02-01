@@ -1,0 +1,22 @@
+﻿<Window x:Class="ProjektPO.AddItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektPO"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Closing="AddItem_Closing"
+        ResizeMode="NoResize"
+        Title="Add Item" Height="300" Width="300">
+    <Grid Height="172" VerticalAlignment="Top" HorizontalAlignment="Right" Width="294">
+        <Label Content="Category of item" FontSize="25" FontFamily="Raleway" Margin="52,4,47,129"/>
+        <Label Content="Item name" FontSize="25" FontFamily="Raleway" Margin="87,72,79,55"/>
+        <ComboBox  x:Name="categories" Margin="60,47,54,0" VerticalAlignment="Top" Text="Choose category" Width="180" BorderThickness="1" BorderBrush="Black"/>
+        <TextBox x:Name="itemToAdd" Margin="30,113,24,29" BorderThickness="1" BorderBrush="Black" FontSize="18"/>
+        <Button x:Name="confirm" Content="Confirm" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="80,168,74,-26" Click="ConfirmClick" Height="30" VerticalAlignment="Top"/>
+        <Button x:Name="return" Content="Return" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="79,216,75,-74" Click="ReturnClick"/>
+    </Grid>
+</Window>

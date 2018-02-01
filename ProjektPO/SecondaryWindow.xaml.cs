@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjektPO.Model;
+using ProjektPO.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,51 +21,85 @@ namespace ProjektPO
     /// </summary>
     public partial class SecondaryWindow : Window
     {
-        bool logging_out = false;
         public SecondaryWindow()
         {
             InitializeComponent();
         }
 
-        private void edit_username_Click(object sender, RoutedEventArgs e)
+        private void AddCategoryClick(object sender, RoutedEventArgs e)
         {
-            EditUsername edit_username = new EditUsername();
-            ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = false;
-            edit_username.Show();
+            AddCategory addCategory = new AddCategory();
+            this.IsEnabled = false;
+            addCategory.Owner = this;
+            addCategory.Show();
         }
 
-        private void edit_password_Click(object sender, RoutedEventArgs e)
+        private void AddItemClick(object sender, RoutedEventArgs e)
         {
-            EditPassword edit_password = new EditPassword();
-            ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = false;
-            edit_password.Show();
+            AddItem addItem = new AddItem();
+            this.IsEnabled = false;
+            addItem.Owner = this;
+            addItem.Show();
         }
 
-        private void logout_Click(object sender, RoutedEventArgs e)
+        private void DeleteCategoryClick(object sender, RoutedEventArgs e)
         {
-            logging_out = true;
-            ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).Close();
+            DeleteCategory deleteCategory = new DeleteCategory();
+            this.IsEnabled = false;
+            deleteCategory.Owner = this;
+            deleteCategory.Show();
+        }
+
+        private void DeleteItemClick(object sender, RoutedEventArgs e)
+        {
+            DeleteItem deleteItem = new DeleteItem();
+            this.IsEnabled = false;
+            deleteItem.Owner = this;
+            deleteItem.Show();
+        }
+
+        private void EditCategoryClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LogoutClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
             ((MainWindow)App.Current.Properties["MainWindow"]).Show();
-        }    
+        }
 
-        private void delete_account_Click(object sender, RoutedEventArgs e)
+        private void EditUsernameClick(object sender, RoutedEventArgs e)
+        {
+            EditUsername editUsername = new EditUsername();
+            this.IsEnabled = false;
+            editUsername.Owner = this;
+            editUsername.Show();
+        }
+
+        private void EditPasswordClick(object sender, RoutedEventArgs e)
+        {
+            EditPassword editPassword = new EditPassword();
+            this.IsEnabled = false;
+            editPassword.Owner = this;
+            editPassword.Show();
+        }   
+
+        private void DeleteAccountClick(object sender, RoutedEventArgs e)
         {
             MessageBoxResult answer = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButton.YesNo);
             if (answer == MessageBoxResult.Yes)
             {
-                //Delete_Account();
-                logging_out = true;
-                ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).Close();
+                var user = new UserModel();
+                user.DeleteAccount();
+                this.Close();
                 ((MainWindow)App.Current.Properties["MainWindow"]).Show();
             }
         }
 
         private void SecondaryWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (!logging_out)
-            {
-                e.Cancel = true;
-            }
+            ((MainWindow)App.Current.Properties["MainWindow"]).Show();
         }
     }
 }
