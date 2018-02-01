@@ -63,13 +63,14 @@ namespace ProjektPO.Models
 
         public bool DeleteCategory(int categoryId, int userId)//             /nie działa
         {
+
             if (appContext.Categories.Where( c => c.UserEntityId == userId).Any( c => c.Id == categoryId))
             {
                 var deletedCategoryItems = appContext.CategoryItems.Where(c => c.CategoryEntityId == categoryId).ToList();MessageBox.Show(deletedCategoryItems.Count().ToString());
                 foreach(var item in deletedCategoryItems)
                 {
                     
-                    DeleteCategoryItem(item.Id, userId);
+                    DeleteCategoryItem(item.Name, userId);
                 }
                 appContext.SaveChanges();
                 var deletedCategory = appContext.Categories.Where(c => c.UserEntityId == userId).FirstOrDefault( c => c.Id == categoryId);
@@ -84,12 +85,11 @@ namespace ProjektPO.Models
                 
         }
 
-        public bool DeleteCategoryItem(int categoryItemId, int userId)
+        public bool DeleteCategoryItem(string categoryItemName, int userId)
         {
-            if(appContext.CategoryItems.Where( u => u.UserEntityId == userId).Any( i => i.Id == categoryItemId))
+            if(appContext.CategoryItems.Where( u => u.UserEntityId == userId).Any( i => i.Name == categoryItemName))
             {
-                var deletedCategoryItem = appContext.CategoryItems.Find(categoryItemId);
-                MessageBox.Show("test");
+                var deletedCategoryItem = appContext.CategoryItems.FirstOrDefault(u => u.UserEntityId == userId && u.Name == categoryItemName);
                 appContext.CategoryItems.Remove(deletedCategoryItem);
                 appContext.SaveChanges();
                 return true;

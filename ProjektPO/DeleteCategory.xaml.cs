@@ -22,11 +22,9 @@ namespace ProjektPO
     /// </summary>
     public partial class DeleteCategory : Window
     {
-        //public List<string> CategoryNames { get; set; }
         public DeleteCategory()
         {
             InitializeComponent();
-            //placeholder na ReadCategory()
             var _context = new ApplicationDB();
             List<string> CategoryNames = new List<string>();
             var categories_ = _context.Categories.ToList();

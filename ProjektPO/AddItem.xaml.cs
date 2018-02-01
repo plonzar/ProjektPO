@@ -1,4 +1,5 @@
-﻿using ProjektPO.Model;
+﻿using ProjektPO.Entity;
+using ProjektPO.Models;
 using ProjektPO.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,41 @@ namespace ProjektPO
         public AddItem()
         {
             InitializeComponent();
+            var _context = new ApplicationDB();
+            List<string> CategoryNames = new List<string>();
+            var categories_ = _context.Categories.ToList();
+            foreach (var category in categories_)
+            {
+                CategoryNames.Add(category.Name);
+            }
+            categories.ItemsSource = CategoryNames;
         }
 
         private void ConfirmClick(object sender, RoutedEventArgs e)
         {
-
+            string item = itemToAdd.Text;
+            if (String.IsNullOrEmpty(item))
+            {
+                MessageBox.Show("No item name given.", "Error", MessageBoxButton.OK);
+            }
+            else
+            { 
+                var categoryModel = new CategoryModel();
+                var category = categoryModel.ReadCategory(categories.SelectedValue.ToString(), (int)App.Current.Properties["loggedUserID"]);
+                var categoryItemViewModel = new CategoryItemViewModel()
+                {
+                    Name = item,
+                    CategoryId = category.Id,
+                };
+                if (categoryModel.AddCategoryItem(categoryItemViewModel, category.Id, (int)App.Current.Properties["loggedUserID"]))
+                {
+                    MessageBox.Show("A new item has been added", "Confirmation", MessageBoxButton.OK);
+                }
+                else
+                {
+                    MessageBox.Show("This item already exists in that category.", "Error", MessageBoxButton.OK);
+                }
+            }
         }
 
         private void ReturnClick(object sender, RoutedEventArgs e)

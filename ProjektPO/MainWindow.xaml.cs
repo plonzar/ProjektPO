@@ -26,6 +26,7 @@ namespace ProjektPO
         {
             InitializeComponent();
             App.Current.Properties["MainWindow"] = this;
+            DataContext = this;
         }
 
         private void LoginClick(object sender, RoutedEventArgs e)
