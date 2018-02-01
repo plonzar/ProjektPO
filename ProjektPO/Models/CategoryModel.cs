@@ -114,7 +114,6 @@ namespace ProjektPO.Models
             {
                 return false;
             }
-
             return true;
         }
 
