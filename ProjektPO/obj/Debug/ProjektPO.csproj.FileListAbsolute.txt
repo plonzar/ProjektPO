@@ -77,7 +77,6 @@ C:\Users\Piotrek\Desktop\ProjektPO\ProjektPO\obj\Debug\ProjektPO.csproj.CoreComp
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\ProjektPO.csprojResolveAssemblyReference.cache
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\MainWindow.g.cs
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\App.g.cs
-C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\ProjektPO_Content.g.cs
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\ProjektPO_MarkupCompile.cache
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\ProjektPO_MarkupCompile.lref
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\ProjektPO.exe
