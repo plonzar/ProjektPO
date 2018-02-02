@@ -1,5 +1,6 @@
 ﻿using ProjektPO.HelperClasses;
 using ProjektPO.Entity;
+using System.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -98,6 +99,7 @@ namespace ProjektPO.Models
         {
             List<OperationEntity> op = _context.Operations
                                             .AsNoTracking()
+                                            .Include(x => x.CategoryItem)
                                             .Where(x => x.UserEntityId == userId
                                             && x.Date >= dateFrom.Date
                                             && x.Date <= dateTo.Date
@@ -122,6 +124,7 @@ namespace ProjektPO.Models
         {
             List<OperationEntity> op = _context.Operations
                                           .AsNoTracking()
+                                          .Include(x => x.CategoryItem)
                                           .Where(x => x.UserEntityId == userId
                                           && x.Date >= dateFrom.Date
                                           && x.Date <= dateTo.Date

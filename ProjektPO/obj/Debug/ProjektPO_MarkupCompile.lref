@@ -1,6 +1,7 @@
 ﻿
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 FC:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\ChartsWindow.xaml;;
 FC:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\MainWindow.xaml;;
 =======
@@ -17,4 +18,20 @@ FC:\Users\user\Desktop\projekt\ProjektPO\ProjektPO\AddOperation.xaml;;
 FC:\Users\user\Desktop\projekt\ProjektPO\ProjektPO\DeleteOperation.xaml;;
 FC:\Users\user\Desktop\projekt\ProjektPO\ProjektPO\ShowChartsDate.xaml;;
 >>>>>>> origin/Wojciech_Skwarun
+=======
+FC:\Users\Damian\ProjektPO\ProjektPO\AddCategory.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\AddItem.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\AddOperation.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\Charts.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\DeleteCategory.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\DeleteItem.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\DeleteOperation.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\EditCategory.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\EditOperation.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\EditPassword.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\EditUsername.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\MainWindow.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\SecondaryWindow.xaml;;
+FC:\Users\Damian\ProjektPO\ProjektPO\ShowChartsDate.xaml;;
+>>>>>>> Wojciech_Skwarun
 

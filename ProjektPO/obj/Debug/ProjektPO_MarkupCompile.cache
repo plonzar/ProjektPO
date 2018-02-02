@@ -5,14 +5,19 @@ winexe
 C#
 .cs
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\
 =======
 C:\Users\user\Desktop\projekt\ProjektPO\ProjektPO\obj\Debug\
 >>>>>>> origin/Wojciech_Skwarun
+=======
+C:\Users\Damian\ProjektPO\ProjektPO\obj\Debug\
+>>>>>>> Wojciech_Skwarun
 ProjektPO
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 <<<<<<< HEAD
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\App.xaml
 219545402
@@ -28,6 +33,14 @@ C:\Users\user\Desktop\projekt\ProjektPO\ProjektPO\App.xaml
 77676929969
 AddCategory.xaml;AddItem.xaml;AddOperation.xaml;DeleteCategory.xaml;DeleteItem.xaml;DeleteOperation.xaml;EditCategory.xaml;EditPassword.xaml;EditUsername.xaml;MainWindow.xaml;SecondaryWindow.xaml;ShowChartsDate.xaml;
 >>>>>>> origin/Wojciech_Skwarun
+=======
+C:\Users\Damian\ProjektPO\ProjektPO\App.xaml
+141160535837
+31361781691
+54347491412
+85-1504785520
+AddCategory.xaml;AddItem.xaml;AddOperation.xaml;Charts.xaml;DeleteCategory.xaml;DeleteItem.xaml;DeleteOperation.xaml;EditCategory.xaml;EditOperation.xaml;EditPassword.xaml;EditUsername.xaml;MainWindow.xaml;SecondaryWindow.xaml;ShowChartsDate.xaml;
+>>>>>>> Wojciech_Skwarun
 
 False
 
