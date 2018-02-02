@@ -12,9 +12,9 @@ namespace ProjektPO.Abstract
     {
         bool AddCategory(CategoryViewModel categoryViewModel, int userId);        
         bool DeleteCategory(int categoryId, int userId);
-        bool EditCategory(CategoryViewModel categoryViewModel, int userId);
+        bool EditCategory(CategoryViewModel categoryViewModel, string newName, int userId);
         CategoryViewModel ReadCategory(string categoryName, int userId);
-        bool DeleteCategoryItem(string categoryItemName, int userId);     
+        bool DeleteCategoryItem(string categoryItemName, int categoryId, int userId);     
         bool AddCategoryItem(CategoryItemViewModel categoryItemViewModel, int categoryId,int userId);
         List<CategoryItemViewModel> ReadCategoryItems(int categoryId);
 

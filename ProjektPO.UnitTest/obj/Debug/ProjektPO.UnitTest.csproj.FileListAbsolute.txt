@@ -39,3 +39,7 @@ D:\ProjektPO\Projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\Castle.Core.xml
 D:\ProjektPO\Projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\Moq.pdb
 D:\ProjektPO\Projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\Moq.xml
 D:\ProjektPO\Projekt\ProjektPO\ProjektPO.UnitTest\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\user\Desktop\projekt\ProjektPO\ProjektPO.UnitTest\obj\Debug\ProjektPO.UnitTest.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\projekt\ProjektPO\ProjektPO.UnitTest\obj\Debug\ProjektPO.UnitTest.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\projekt\ProjektPO\ProjektPO.UnitTest\obj\Debug\ProjektPO.UnitTest.dll
+C:\Users\user\Desktop\projekt\ProjektPO\ProjektPO.UnitTest\obj\Debug\ProjektPO.UnitTest.pdb

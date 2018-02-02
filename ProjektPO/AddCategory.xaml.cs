@@ -35,7 +35,6 @@ namespace ProjektPO
                 {
                     Name = category,
                     UserId = ((int)App.Current.Properties["loggedUserID"]).ToString(),
-                    CategoryItems = null
                 };
                 var categoryModel = new CategoryModel();
                 if (categoryModel.AddCategory(categoryViewModel, (int)App.Current.Properties["loggedUserID"]))

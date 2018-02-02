@@ -1,7 +1,9 @@
 ﻿using ProjektPO.Models;
+using ProjektPO.Model;
 using ProjektPO.ViewModels;
-using ProjektPO.Entity;
+using ProjektPO.Enums;
 using System;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,16 +24,17 @@ namespace ProjektPO
     /// </summary>
     public partial class AddOperation : Window
     {
+        private List<CategoryItemViewModel> currentItems;
         public AddOperation()
         {
             InitializeComponent();
-            day.ItemsSource = Enumerable.Range(1, 31);
-            month.ItemsSource = Enumerable.Range(1, 12);
-            year.ItemsSource = Enumerable.Range(0, 100).Select(x => x + 2000);
-            type.ItemsSource = new List<String>{"Income", "Outcome"};
-            var _context = new ApplicationDB();
+            dayCB.ItemsSource = Enumerable.Range(1, 31);
+            monthCB.ItemsSource = Enumerable.Range(1, 12);
+            yearCB.ItemsSource = Enumerable.Range(0, 100).Select(x => x + 2000);
+            typeCB.ItemsSource = new List<String>{"Income", "Outcome"};
+            UserModel userModel = new UserModel();
             List<string> CategoryNames = new List<string>();
-            var categories_ = _context.Categories.ToList();
+            var categories_ = userModel.UserCategories((int)App.Current.Properties["loggedUserID"]);
             foreach (var category in categories_)
             {
                 CategoryNames.Add(category.Name);
@@ -41,23 +44,59 @@ namespace ProjektPO
 
         private void ConfirmClick(object sender, RoutedEventArgs e)
         {
-
+            if (categoriesCB.SelectedValue != null && itemsCB.SelectedValue != null && dayCB.SelectedValue != null &&
+                monthCB.SelectedValue != null && yearCB.SelectedValue != null && typeCB.SelectedValue != null && amount.Text != "")
+            {
+                var category = categoriesCB.SelectedValue.ToString();
+                var categoryModel = new CategoryModel();
+                var categoryID = categoryModel.ReadCategory(category, (int)App.Current.Properties["loggedUserID"]).Id;
+                var item = itemsCB.SelectedValue.ToString();
+                var day = dayCB.SelectedValue.ToString();
+                var month = monthCB.SelectedValue.ToString();
+                var year = yearCB.SelectedValue.ToString();
+                var type = typeCB.SelectedValue.ToString();
+                var operationModel = new OperationModel();
+                var datetime = Convert.ToDateTime(day + "/" + month + "/" + year);
+                var operationCategoryItems = categoryModel.ReadCategoryItems(categoryID);
+                int typeInt;
+                if (type == "Income")
+                {
+                    typeInt = 0;
+                }
+                else
+                {
+                    typeInt = 1;
+                }
+                var operationViewModel = new OperationViewModel()
+                {
+                    Date = datetime,
+                    Amount = decimal.Parse(amount.Text),
+                    Type = (OperationType)typeInt,
+                    UserId = ((int)App.Current.Properties["loggedUserID"]).ToString(),
+                    Note = ""
+                };
+                operationModel.AddOperation(operationViewModel, (int)App.Current.Properties["loggedUserID"], currentItems[itemsCB.SelectedIndex].Id);
+                MessageBox.Show("A new operation has been added.", "Confirmation", MessageBoxButton.OK);
+            }
+            else
+            {
+                MessageBox.Show("Not all required values were chosen", "Error", MessageBoxButton.OK);
+            }
         }
 
         private void CategoriesSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var _context = new ApplicationDB();
             var categoryModel = new CategoryModel();
             var category = categoryModel.ReadCategory(categoriesCB.SelectedValue.ToString(), (int)App.Current.Properties["loggedUserID"]);
-            var items = _context.CategoryItems;
+            var items = categoryModel.ReadCategoryItems(category.Id);
             List<String> itemNames = new List<string>();
             foreach (var item in items)
             {
-                if (item.CategoryEntityId == category.Id && item.UserEntityId == (int)App.Current.Properties["loggedUserID"])
                 {
                     itemNames.Add(item.Name);
                 }
             }
+            currentItems = items;
             itemsCB.ItemsSource = itemNames;
         }
 
@@ -72,6 +111,11 @@ namespace ProjektPO
         {
             this.Owner = null;
             ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = true;
+        }
+
+        private void AmountTextChanged(object sender, TextChangedEventArgs e)
+        {
+            amount.Text = Regex.Replace(amount.Text, "[^0-9]+", "");
         }
     }
 }

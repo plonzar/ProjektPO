@@ -8,6 +8,7 @@ namespace ProjektPO.ViewModels//1
 {
     public class CategoryItemViewModel
     {
+        public int Id { get; set; }
         public int CategoryId { get; set; }
         public string Name { get; set; }
         public bool IncludeInEstimates { get; set; }

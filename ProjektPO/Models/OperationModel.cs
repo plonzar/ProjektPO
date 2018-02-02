@@ -1,4 +1,6 @@
-﻿using ProjektPO.Entity;
+﻿using System.Windows;
+
+using ProjektPO.Entity;
 using ProjektPO.Abstract;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ namespace ProjektPO.Models
     public class OperationModel : IOperationModel//5
     {
         private ApplicationDB appContext = new ApplicationDB();
-        public void AddOperation(OperationViewModel newOperationViewModel, int userId)
+        public void AddOperation(OperationViewModel newOperationViewModel, int userId, int categoryItemId)
         {
             if (newOperationViewModel != null)
             {
@@ -24,10 +26,9 @@ namespace ProjektPO.Models
                     Note = newOperationViewModel.Note,
                     Type = newOperationViewModel.Type,
                     Amount = newOperationViewModel.Amount,
-                    Id = newOperationViewModel.Id,
                     Date = newOperationViewModel.Date,
-                    CategoryItemEntityId = newOperationViewModel.OperationCategory.CategoryEntityId,
-                    CategoryItem = newOperationViewModel.OperationCategory
+                    CategoryItemEntityId = categoryItemId,
+                    CategoryItem = appContext.CategoryItems.Find(categoryItemId)
                 };
                 appContext.Operations.Add(newOperation);
             }
@@ -47,7 +48,7 @@ namespace ProjektPO.Models
                     Id = entity.Id,
                     Date = entity.Date,
                     Amount = entity.Amount,
-                    OperationCategory = entity.CategoryItem,
+                    OperationCategory = appContext.CategoryItems.Find(entity.CategoryItemEntityId),
                     Type = entity.Type,
                     UserId = entity.UserEntityId.ToString(),
                     Note = entity.Note
@@ -61,7 +62,6 @@ namespace ProjektPO.Models
         {
             var updatedEntity = appContext.Operations.Find(updatedOperation.Id);
 
-            updatedEntity.Id = updatedOperation.Id;
             updatedEntity.Date = updatedOperation.Date;
             updatedEntity.Amount = updatedOperation.Amount;
             updatedEntity.CategoryItem = updatedOperation.OperationCategory;

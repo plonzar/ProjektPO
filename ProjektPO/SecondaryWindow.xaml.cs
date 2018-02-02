@@ -60,9 +60,43 @@ namespace ProjektPO
 
         private void EditCategoryClick(object sender, RoutedEventArgs e)
         {
-
+            EditCategory editCategory = new EditCategory();
+            this.IsEnabled = false;
+            editCategory.Owner = this;
+            editCategory.Show();
         }
 
+        private void AddOperationClick(object sender, RoutedEventArgs e)
+        {
+            AddOperation addOperation = new AddOperation();
+            this.IsEnabled = false;
+            addOperation.Owner = this;
+            addOperation.Show();
+        }
+
+        private void DeleteOperationClick(object sender, RoutedEventArgs e)
+        {
+            DeleteOperation deleteOperation = new DeleteOperation();
+            this.IsEnabled = false;
+            deleteOperation.Owner = this;
+            deleteOperation.Show();
+        }
+
+        private void EditOperationClick(object sender, RoutedEventArgs e)
+        {
+            EditOperation editOperation = new EditOperation();
+            this.IsEnabled = false;
+            editOperation.Owner = this;
+            editOperation.Show();
+        }
+
+        private void ShowChartsDateButtonClick(object sender, RoutedEventArgs e)
+        {
+            ShowChartsDate showChartsDate = new ShowChartsDate();
+            this.IsEnabled = false;
+            showChartsDate.Owner = this;
+            showChartsDate.Show();
+        }
         private void LogoutClick(object sender, RoutedEventArgs e)
         {
             this.Close();

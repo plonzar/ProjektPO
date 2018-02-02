@@ -20,12 +20,13 @@ namespace ProjektPO.Models
             _context = new ApplicationDB();
         }
 
-        public List<Point> GetLinearIncome(DateTime dateFrom, DateTime dateTo, int categoryId)
+        public List<Point> GetLinearIncome(DateTime dateFrom, DateTime dateTo, int categoryId, int userId)
         {
             List<OperationEntity> op = _context.Operations
                                                .AsNoTracking()
-                                               .Where(x => x.Date > dateFrom.Date
-                                               && x.Date < dateTo.Date
+                                               .Where(x => x.UserEntityId == userId 
+                                               && x.Date >= dateFrom.Date
+                                               && x.Date <= dateTo.Date
                                                && x.CategoryItem.CategoryEntityId == categoryId
                                                && x.Type == OperationType.Income)
                                                .ToList();
@@ -39,11 +40,12 @@ namespace ProjektPO.Models
 
             return result;
         }
-        public List<Point> GetLinearOutcome(DateTime dateFrom, DateTime dateTo, int categoryId)
+        public List<Point> GetLinearOutcome(DateTime dateFrom, DateTime dateTo, int categoryId, int userId)
         {
             List<OperationEntity> op = _context.Operations
                                                .AsNoTracking()
-                                               .Where(x => x.Date >= dateFrom
+                                               .Where(x => x.UserEntityId == userId
+                                               && x.Date >= dateFrom
                                                && x.Date <= dateTo
                                                && x.CategoryItem.CategoryEntityId == categoryId 
                                                && x.Type == OperationType.Outcome)
@@ -58,11 +60,12 @@ namespace ProjektPO.Models
 
             return result;
         }
-        public List<Point> GetLinearProfit(DateTime dateFrom, DateTime dateTo, int categoryId)
+        public List<Point> GetLinearProfit(DateTime dateFrom, DateTime dateTo, int categoryId, int userId)
         {
             List<OperationEntity> income = _context.Operations
                                    .AsNoTracking()
-                                   .Where(x => x.Date >= dateFrom.Date
+                                   .Where(x => x.UserEntityId == userId
+                                   && x.Date >= dateFrom.Date
                                    && x.Date <= dateTo.Date
                                    && x.CategoryItem.CategoryEntityId == categoryId
                                    && x.Type == OperationType.Income)
@@ -70,7 +73,8 @@ namespace ProjektPO.Models
 
             List<OperationEntity> outcome = _context.Operations
                                    .AsNoTracking()
-                                   .Where(x => x.Date >= dateFrom.Date
+                                   .Where(x => x.UserEntityId == userId
+                                   && x.Date >= dateFrom.Date
                                    && x.Date <= dateTo.Date
                                    && x.CategoryItem.CategoryEntityId == categoryId
                                    && x.Type == OperationType.Outcome)
@@ -90,12 +94,13 @@ namespace ProjektPO.Models
 
             return result;
         }
-        public List<DiagramItem> GetIncomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId)
+        public List<DiagramItem> GetIncomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId, int userId)
         {
             List<OperationEntity> op = _context.Operations
                                             .AsNoTracking()
-                                            .Where(x => x.Date > dateFrom.Date
-                                            && x.Date < dateTo.Date
+                                            .Where(x => x.UserEntityId == userId
+                                            && x.Date >= dateFrom.Date
+                                            && x.Date <= dateTo.Date
                                             && x.CategoryItem.CategoryEntityId == categoryId
                                             && x.Type == OperationType.Income)
                                             .ToList();
@@ -113,12 +118,13 @@ namespace ProjektPO.Models
 
             return result;
         }
-        public List<DiagramItem> GetOutcomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId)
+        public List<DiagramItem> GetOutcomeForDiagram(DateTime dateFrom, DateTime dateTo, int categoryId, int userId)
         {
             List<OperationEntity> op = _context.Operations
                                           .AsNoTracking()
-                                          .Where(x => x.Date > dateFrom.Date
-                                          && x.Date < dateTo.Date
+                                          .Where(x => x.UserEntityId == userId
+                                          && x.Date >= dateFrom.Date
+                                          && x.Date <= dateTo.Date
                                           && x.CategoryItem.CategoryEntityId == categoryId
                                           && x.Type == OperationType.Outcome)
                                           .ToList();

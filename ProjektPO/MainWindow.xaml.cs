@@ -83,7 +83,9 @@ namespace ProjektPO
                 {
                     MessageBox.Show("This username is already taken.", "Registration", MessageBoxButton.OK);
                 }
+                
             }
+            
         }
     }
 }

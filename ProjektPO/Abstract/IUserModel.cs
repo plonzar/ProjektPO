@@ -1,4 +1,5 @@
-﻿using ProjektPO.ViewModels;
+﻿using System.Collections.Generic;
+using ProjektPO.ViewModels;
 namespace ProjektPO.Abstract
 {
     public interface IUserModel
@@ -8,5 +9,6 @@ namespace ProjektPO.Abstract
         bool EditUsername(string newUsername);
         void EditPassword(string newPassword);
         void DeleteAccount();
+        List<CategoryViewModel> UserCategories(int userId);
     }
 }

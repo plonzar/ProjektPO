@@ -10,21 +10,23 @@
         VerticalAlignment="Center"
         Closing="AddOperation_Closing"
         ResizeMode="NoResize"
-        Title="Add Operation" Height="449" Width="300">
+        Title="Add Operation" Height="460" Width="300">
     <Grid Height="172" VerticalAlignment="Top" HorizontalAlignment="Right" Width="294">
         <Label Content="Category of item" FontSize="25" FontFamily="Raleway" Margin="52,4,47,129"/>
         <Label Content="Item name" FontSize="25" FontFamily="Raleway" Margin="87,72,79,55"/>
         <ComboBox  x:Name="categoriesCB" Margin="60,46,54,0"  VerticalAlignment="Top" Text="Choose category" Width="180" BorderThickness="1" BorderBrush="Black" SelectionChanged="CategoriesSelectionChanged"/>
         <ComboBox  x:Name="itemsCB" Margin="60,112,54,0"  VerticalAlignment="Top" Text="Choose category" Width="180" BorderThickness="1" BorderBrush="Black"/>
-        <Label Content="Type" FontSize="14" FontFamily="Raleway" Margin="125,228,126,-83"/>
-        <Button x:Name="confirm" Content="Confirm" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="77,306,77,-164" Click="ConfirmClick" Height="30" VerticalAlignment="Top"/>
-        <Button x:Name="return" Content="Return" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="77,352,77,-210" Click="ReturnClick"/>
+        <Label Content="Type" FontSize="14" FontFamily="Raleway" Margin="48,229,203,-84" RenderTransformOrigin="0.163,0.444"/>
+        <Button x:Name="confirm" Content="Confirm" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="77,316,77,-174" Click="ConfirmClick" Height="30" VerticalAlignment="Top"/>
+        <Button x:Name="return" Content="Return" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="77,360,77,-218" Click="ReturnClick"/>
         <Label x:Name="dayLabel" Content="Day" FontSize="14" HorizontalAlignment="Left" Height="28" Margin="49,156,0,-12" VerticalAlignment="Top" RenderTransformOrigin="0.895,-2.893" Width="48"/>
         <Label x:Name="monthLabel" Content="Month" FontSize="14" Margin="121,156,119,-11" RenderTransformOrigin="0.37,1.259"/>
         <Label x:Name="yearLabel" Content="Year" FontSize="14" Height="43" Margin="207,156,31,-27" VerticalAlignment="Top" RenderTransformOrigin="0.053,0.413"/>
-        <ComboBox x:Name="day" HorizontalAlignment="Left" Height="21" Margin="45,194,0,-43" VerticalAlignment="Top" Width="42" BorderBrush="Black" BorderThickness="1"/>
-        <ComboBox x:Name="month" HorizontalAlignment="Left" Height="21" Margin="126,194,0,-43" VerticalAlignment="Top" Width="42" BorderBrush="Black" BorderThickness="1"/>
-        <ComboBox x:Name="year" HorizontalAlignment="Left" Height="21" Margin="199,194,0,-43" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.291,0.81" BorderBrush="Black" BorderThickness="1"/>
-        <ComboBox x:Name="type" Height="21" Margin="107,260,108,-109" VerticalAlignment="Top" RenderTransformOrigin="0.291,0.81" BorderBrush="Black" BorderThickness="1"/>
+        <ComboBox x:Name="dayCB" HorizontalAlignment="Left" Height="21" Margin="45,194,0,-43" VerticalAlignment="Top" Width="42" BorderBrush="Black" BorderThickness="1" SelectedIndex="0"/>
+        <ComboBox x:Name="monthCB" HorizontalAlignment="Left" Height="21" Margin="126,194,0,-43" VerticalAlignment="Top" Width="42" BorderBrush="Black" BorderThickness="1" SelectedIndex="0"/>
+        <ComboBox x:Name="yearCB" HorizontalAlignment="Left" Height="21" Margin="199,194,0,-43" VerticalAlignment="Top" Width="55" BorderBrush="Black" BorderThickness="1" SelectedIndex="0"/>
+        <ComboBox x:Name="typeCB" Height="21" Margin="27,263,188,-112" VerticalAlignment="Top" RenderTransformOrigin="0.291,0.81" BorderBrush="Black" BorderThickness="1" SelectedIndex="0"/>
+        <Label Content="Amount" FontSize="14" FontFamily="Raleway" Margin="180,229,52,-84"/>
+        <TextBox x:Name="amount" HorizontalAlignment="Left" Height="23" Margin="148,262,0,-113" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" BorderBrush="Black" BorderThickness="1" MaxLength="15" TextChanged="AmountTextChanged"/>
     </Grid>
 </Window>
