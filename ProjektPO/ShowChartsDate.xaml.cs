@@ -40,7 +40,7 @@ namespace ProjektPO
             year2CB.ItemsSource = Enumerable.Range(0, 100).Select(x => x + 2000);
         }
 
-        private void ConfirmClick(object sender, RoutedEventArgs e)
+        public void ConfirmClick(object sender, RoutedEventArgs e)
         {
             if (categoryCB.SelectedValue != null)
             {
@@ -57,6 +57,40 @@ namespace ProjektPO
                 var category = categoryModel.ReadCategory(categoryCB.SelectedValue.ToString(), userId);
                 var categoryId = category.Id;
                 // kod do wykresow
+                Charts charts = new Charts();
+                StatisticsModel statisticsModel = new StatisticsModel();
+
+                var listPieIncome = statisticsModel.GetIncomeForDiagram(datetime1, datetime2, categoryId, userId);
+                foreach(var item in listPieIncome)
+                {
+                    charts.diagram_przychody.AddPoint(item.Label, (double)item.Value);
+                }
+
+                var listPieOutcome = statisticsModel.GetOutcomeForDiagram(datetime1, datetime2, categoryId, userId);
+                foreach (var item in listPieOutcome)
+                {
+                    charts.diagram_wydatki.AddPoint(item.Label, (double)item.Value);
+                }
+
+                var listLinearIncome = statisticsModel.GetLinearIncome(datetime1, datetime2, categoryId, userId);
+                foreach(var item in listLinearIncome)
+                {
+                    charts.liniowy_przychody.AddPoint(item.X, (double)item.Y);
+                }
+
+                var listLinearOutcome = statisticsModel.GetLinearOutcome(datetime1, datetime2, categoryId, userId);
+                foreach (var item in listLinearOutcome)
+                {
+                    charts.liniowy_wydatki.AddPoint(item.X, (double)item.Y);
+                }
+
+                var listLinearProfit = statisticsModel.GetLinearProfit(datetime1, datetime2, categoryId, userId);
+                foreach (var item in listLinearProfit)
+                {
+                    charts.liniowy_profit.AddPoint(item.X, (double)item.Y);
+                }
+                
+                charts.Show();
                 this.Close();
                 ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = true;
             }

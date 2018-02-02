@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\user\Desktop\projekt\ProjektPO\ProjektPO\obj\Debug\
+C:\Users\Damian\ProjektPO\ProjektPO\obj\Debug\
 ProjektPO
 none
 false
 DEBUG;TRACE
-C:\Users\user\Desktop\projekt\ProjektPO\ProjektPO\App.xaml
-12-358988315
-62122118126
-5225303942
-77676929969
-AddCategory.xaml;AddItem.xaml;AddOperation.xaml;DeleteCategory.xaml;DeleteItem.xaml;DeleteOperation.xaml;EditCategory.xaml;EditPassword.xaml;EditUsername.xaml;MainWindow.xaml;SecondaryWindow.xaml;ShowChartsDate.xaml;
+C:\Users\Damian\ProjektPO\ProjektPO\App.xaml
+141160535837
+31361781691
+54347491412
+85-1504785520
+AddCategory.xaml;AddItem.xaml;AddOperation.xaml;Charts.xaml;DeleteCategory.xaml;DeleteItem.xaml;DeleteOperation.xaml;EditCategory.xaml;EditOperation.xaml;EditPassword.xaml;EditUsername.xaml;MainWindow.xaml;SecondaryWindow.xaml;ShowChartsDate.xaml;
 
 False
 
