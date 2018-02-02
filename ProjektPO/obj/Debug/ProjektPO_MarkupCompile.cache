@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\obj\Debug\
+=======
+C:\Users\user\Desktop\projekt\ProjektPO\ProjektPO\obj\Debug\
+>>>>>>> origin/Wojciech_Skwarun
 ProjektPO
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\Damian\Documents\Github\ProjektPO\ProjektPO\App.xaml
 219545402
 3-118554959
 421304869985
 85-828852357
 ChartsWindow.xaml;MainWindow.xaml;
+=======
+C:\Users\user\Desktop\projekt\ProjektPO\ProjektPO\App.xaml
+12-358988315
+62122118126
+5225303942
+77676929969
+AddCategory.xaml;AddItem.xaml;AddOperation.xaml;DeleteCategory.xaml;DeleteItem.xaml;DeleteOperation.xaml;EditCategory.xaml;EditPassword.xaml;EditUsername.xaml;MainWindow.xaml;SecondaryWindow.xaml;ShowChartsDate.xaml;
+>>>>>>> origin/Wojciech_Skwarun
 
 False
 

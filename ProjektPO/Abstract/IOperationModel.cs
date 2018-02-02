@@ -10,7 +10,11 @@ namespace ProjektPO.Abstract
 {
     public interface IOperationModel
     {
+<<<<<<< HEAD
         void AddOperation(OperationViewModel newOperation, int userId);
+=======
+        void AddOperation(OperationViewModel newOperation, int userId, int categoryId);
+>>>>>>> origin/Wojciech_Skwarun
         List<OperationViewModel> GetList(int userId);
         void Update(OperationViewModel operation);
         void Delete(int operatonId);

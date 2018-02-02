@@ -12,15 +12,19 @@
         ResizeMode="NoResize"
         Title="Home Budget" Height="400" Width="400">
     <Grid Height="370" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="392">
-        
+
         <Button x:Name="addCategory" Width="140" Height="30" Content="Add Category" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="37,25,215,315" Click="AddCategoryClick"/>
         <Button x:Name="addItem" Width="140" Height="30" Content="Add Item" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="215,25,37,315" Click="AddItemClick"/>
         <Button x:Name="deleteCategory" Width="140" Height="30" Content="Delete Category" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="37,67,215,273" Click="DeleteCategoryClick"/>
         <Button x:Name="deleteItem" Width="140" Height="30" Content="Delete Item" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="215,67,37,273" Click="DeleteItemClick"/>
         <Button x:Name="editCategory" Width="140" Height="30" Content="Edit Category" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="37,109,215,231" Click="EditCategoryClick"/>
+        <Button x:Name="addOperation" Width="140" Height="30" Content="Add Operation" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="37,151,215,189" Click="AddOperationClick"/>
+        <Button x:Name="deleteOpeartion" Width="150" Height="30" Content="Delete Operation" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="215,151,27,189" Click="DeleteOperationClick"/>
         <Button x:Name="logout" Width="140" Height="30" Content="Logout" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="37,315,215,25" Click="LogoutClick"/>
         <Button x:Name="editUsername" Width="140" Height="30" Content="Edit Username" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="37,273,215,67" Click="EditUsernameClick"/>
         <Button x:Name="editPassword" Width="140" Height="30" Content="Edit Password" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="215,273,37,67" Click="EditPasswordClick"/>
         <Button x:Name="deleteAccount" Width="140" Height="30" Content="Delete Account" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="215,315,37,25" Click="DeleteAccountClick"/>
+        <Button x:Name="showChartsDateButton" Width="140" Height="30" Content="Show Charts" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="126,232,126,108" Click="ShowChartsDateButtonClick" RenderTransformOrigin="0.493,0.667"/>
+        <Button x:Name="editOperation" Width="140" Height="30" Content="Edit Operation" Background="GhostWhite" BorderBrush="Black" FontSize="18" Margin="126,193,126,147" Click="EditOperationClick" RenderTransformOrigin="0.493,0.667"/>
     </Grid>
 </Window>

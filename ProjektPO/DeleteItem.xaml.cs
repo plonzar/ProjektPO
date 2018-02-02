@@ -1,5 +1,6 @@
 ﻿using ProjektPO.Entity;
 using ProjektPO.Models;
+using ProjektPO.Model;
 using ProjektPO.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -25,9 +26,9 @@ namespace ProjektPO
         public DeleteItem()
         {
             InitializeComponent();
-            var _context = new ApplicationDB();
             List<string> CategoryNames = new List<string>();
-            var categories_ = _context.Categories.ToList();
+            var userModel = new UserModel();
+            var categories_ = userModel.UserCategories((int)App.Current.Properties["loggedUserID"]);
             foreach (var category in categories_)
             {
                 CategoryNames.Add(category.Name);
@@ -37,24 +38,28 @@ namespace ProjektPO
 
         private void ConfirmClick(object sender, RoutedEventArgs e)
         {
-            string category = categories.SelectedValue.ToString();
-            string item = itemToDelete.SelectedValue.ToString();
-            var categoryModel = new CategoryModel();
-            if (categoryModel.DeleteCategoryItem(item, (int)App.Current.Properties["loggedUserID"]))
+            var category = categories.SelectedValue;
+            var item = itemToDelete.SelectedValue;
+            if (category != null && item != null)
             {
-                MessageBox.Show("Selected item has been removed.", "Confirmation", MessageBoxButton.OK);
-                var _context = new ApplicationDB();
-                var category_ = categoryModel.ReadCategory(categories.SelectedValue.ToString(), (int)App.Current.Properties["loggedUserID"]);
-                var items = _context.CategoryItems;
-                List<String> itemNames = new List<string>();
-                foreach (var item_ in items)
+                var categoryString = category.ToString();
+                var itemString = item.ToString();
+                var categoryModel = new CategoryModel();
+                if (categoryModel.DeleteCategoryItem(itemString, categoryModel.ReadCategory(categoryString, (int)App.Current.Properties["loggedUserID"]).Id, (int)App.Current.Properties["loggedUserID"]))
                 {
-                    if (item_.CategoryEntityId == category_.Id && item_.UserEntityId == (int)App.Current.Properties["loggedUserID"])
+                    MessageBox.Show("Selected item has been removed.", "Confirmation", MessageBoxButton.OK);
+                    var itemViewModels = categoryModel.ReadCategoryItems(categoryModel.ReadCategory(categoryString, (int)App.Current.Properties["loggedUserID"]).Id);
+                    List<String> itemNames = new List<string>();
+                    foreach (var itemViewModel in itemViewModels)
                     {
-                        itemNames.Add(item_.Name);
+                        itemNames.Add(itemViewModel.Name);
                     }
+                    itemToDelete.ItemsSource = itemNames;
                 }
-                itemToDelete.ItemsSource = itemNames;
+            }
+            else
+            {
+                MessageBox.Show("No required values have been chosen.", "Error", MessageBoxButton.OK);
             }
         }
 
@@ -73,21 +78,19 @@ namespace ProjektPO
 
         private void CategoriesSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var _context = new ApplicationDB();
             var categoryModel = new CategoryModel();
-            var category = categoryModel.ReadCategory(categories.SelectedValue.ToString(), (int)App.Current.Properties["loggedUserID"]);
-            var items = _context.CategoryItems;
-            List<String> itemNames = new List<string>();
-            foreach (var item in items)
+            var category = categories.SelectedValue;
+            if (category != null)
             {
-                if (item.CategoryEntityId == category.Id && item.UserEntityId == (int)App.Current.Properties["loggedUserID"])
+                string categoryString = categories.SelectedValue.ToString();
+                var itemViewModels = categoryModel.ReadCategoryItems(categoryModel.ReadCategory(categoryString, (int)App.Current.Properties["loggedUserID"]).Id);
+                List<String> itemNames = new List<string>();
+                foreach (var itemViewModel in itemViewModels)
                 {
-                    itemNames.Add(item.Name);
+                    itemNames.Add(itemViewModel.Name);
                 }
+                itemToDelete.ItemsSource = itemNames;
             }
-            itemToDelete.ItemsSource = itemNames;
         }
     }
-
-
 }

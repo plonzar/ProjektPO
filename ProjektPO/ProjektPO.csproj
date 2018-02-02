@@ -94,8 +94,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
     <Compile Include="ChartsWindow.xaml.cs">
       <DependentUpon>ChartsWindow.xaml</DependentUpon>
+=======
+    <Compile Include="AddCategory.xaml.cs">
+      <DependentUpon>AddCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddItem.xaml.cs">
+      <DependentUpon>AddItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddOperation.xaml.cs">
+      <DependentUpon>AddOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteCategory.xaml.cs">
+      <DependentUpon>DeleteCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteItem.xaml.cs">
+      <DependentUpon>DeleteItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteOperation.xaml.cs">
+      <DependentUpon>DeleteOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditCategory.xaml.cs">
+      <DependentUpon>EditCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditOperation.xaml.cs">
+      <DependentUpon>EditOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditPassword.xaml.cs">
+      <DependentUpon>EditPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditUsername.xaml.cs">
+      <DependentUpon>EditUsername.xaml</DependentUpon>
+>>>>>>> origin/Wojciech_Skwarun
     </Compile>
     <Compile Include="Entity\Entity.cs" />
     <Compile Include="Enums\Months.cs" />
@@ -126,11 +158,57 @@
     <Compile Include="HelperClasses\EstimatedOutcomeIncome.cs" />
     <Compile Include="HelperClasses\Point.cs" />
     <Compile Include="Models\EstimatesModel.cs" />
+    <Compile Include="SecondaryWindow.xaml.cs">
+      <DependentUpon>SecondaryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowChartsDate.xaml.cs">
+      <DependentUpon>ShowChartsDate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CategoryItemViewModel.cs" />
     <Compile Include="ViewModels\OperationViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
+<<<<<<< HEAD
     <Page Include="ChartsWindow.xaml">
+=======
+    <Page Include="AddCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditUsername.xaml">
+>>>>>>> origin/Wojciech_Skwarun
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +224,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SecondaryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowChartsDate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICategoryModel.cs" />

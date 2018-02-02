@@ -83,6 +83,7 @@ namespace ProjektPO
                     Name = username_,
                     Password = password_
                 };
+<<<<<<< HEAD
 
                 //var user = new UserModel();
                 //if (user.Register(userViewModel))
@@ -93,7 +94,20 @@ namespace ProjektPO
                 //{
                 //    MessageBox.Show("This username is already taken.", "Registration", MessageBoxButton.OK);
                 //}
+=======
+                var user = new UserModel();
+                if (user.Register(userViewModel))
+                {
+                    MessageBox.Show("Your account has been successfully registered.", "Registration", MessageBoxButton.OK);
+                }
+                else
+                {
+                    MessageBox.Show("This username is already taken.", "Registration", MessageBoxButton.OK);
+                }
+                
+>>>>>>> origin/Wojciech_Skwarun
             }
+            
         }
 
         private void OpenCharts_Click(object sender, RoutedEventArgs e)

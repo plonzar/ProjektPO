@@ -16,60 +16,60 @@ namespace ProjektPO.Model
         public bool Register(UserViewModel user)
         {
             _context = new ApplicationDB();
-            var dbEntry = _context.Users.FirstOrDefault(x => x.Name == user.Name);
-            if (dbEntry == null)
+            var users = _context.Users;
+            if (users != null)
             {
-                var userEntity = new UserEntity
+                foreach (var user_ in users)
                 {
-                    Name = user.Name,
-                    Password = user.Password
-                };
-                _context.Users.Add(userEntity);
-                _context.SaveChanges();
-                _context.Dispose();
-                return true;
+                    if (user_.Name == user.Name)
+                    {
+                        return false;
+                    }
+                }
             }
-            else
+            var userEntity = new UserEntity()
             {
-                _context.Dispose();
-                return false;
-            }
+                Name = user.Name,
+                Password = user.Password
+            };
+             _context.Users.Add(userEntity);
+             _context.SaveChanges();
+             return true;
         }
 
         public bool Login(UserViewModel user)
         {
             _context = new ApplicationDB();
-            var dbEntry = _context.Users.FirstOrDefault(x => x.Name == user.Name && x.Password == user.Password);
-            if (dbEntry == null)
+            var users = _context.Users;
+            if (users != null)
             {
-                _context.Dispose();
-                return false;
+                foreach (var user_ in users)
+                {
+                    if (user_.Name == user.Name && user_.Password == user.Password)
+                    {
+                        App.Current.Properties["loggedUserID"] = user_.Id;
+                        return true;
+                    }
+                }
             }
-            else
-            {
-                App.Current.Properties["loggedUserID"] = dbEntry.Id;
-                _context.Dispose();
-                return true;
-            }
+            return false;
         }
 
         public bool EditUsername(string newUsername)
         {
             _context = new ApplicationDB();
-            var dbEntry = _context.Users.FirstOrDefault(user => user.Name == newUsername);
-            if (dbEntry != null)
+            var users = _context.Users;
+            foreach (var user_ in users)
             {
-                _context.Dispose();
-                return false;
+                if (user_.Name == newUsername)
+                {
+                    return false;
+                }
             }
-            else
-            {
-                dbEntry = _context.Users.Find((int)App.Current.Properties["loggedUserID"]);
-                dbEntry.Name = newUsername;
-                _context.SaveChanges();
-                _context.Dispose();
-                return true;
-            }
+            var dbEntry = _context.Users.Find((int)App.Current.Properties["loggedUserID"]);
+            dbEntry.Name = newUsername;
+            _context.SaveChanges();
+            return true;
         }
 
         public void EditPassword(string newPassword)
@@ -78,7 +78,6 @@ namespace ProjektPO.Model
             var dbEntry = _context.Users.Find((int)App.Current.Properties["loggedUserID"]);
             dbEntry.Password = newPassword;
             _context.SaveChanges();
-            _context.Dispose();
         }
 
         public void DeleteAccount()
@@ -111,7 +110,25 @@ namespace ProjektPO.Model
             }
             _context.Users.Remove(dbEntry);
             _context.SaveChanges();
-            _context.Dispose();
+        }
+
+        public List<CategoryViewModel> UserCategories(int userId)
+        {
+            _context = new ApplicationDB();
+            List<CategoryViewModel> categoryViewModels = new List<CategoryViewModel>();
+            var categories = _context.Categories.Where(x=>x.UserEntityId == userId).ToList();
+            foreach (var category in categories)
+            {
+                var categoryViewModel = new CategoryViewModel()
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                    UserId = category.ToString(),
+                    CategoryItems = null,
+                };
+                categoryViewModels.Add(categoryViewModel);
+            }
+            return categoryViewModels;
         }
     }
 }

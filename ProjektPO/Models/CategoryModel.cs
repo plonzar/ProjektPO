@@ -27,12 +27,16 @@ namespace ProjektPO.Models
                     Id = categoryViewModel.Id,
                     UserEntityId = userId,
                     Name = categoryViewModel.Name,
+<<<<<<< HEAD
                     Categories = categoryViewModel.CategoryItems.ToList()
 
                     //UserEntityId = userId,
                     //Name = categoryViewModel.Name,
                     //Categories = categoryViewModel.CategoryItems
 
+=======
+                    Categories = new List<CategoryItemEntity>()
+>>>>>>> origin/Wojciech_Skwarun
                 };
                 appContext.Categories.Add(categoryEntity);
                 appContext.SaveChanges();
@@ -56,8 +60,10 @@ namespace ProjektPO.Models
                     UserEntityId = userId,
                     Name = categoryItemViewModel.Name,
                     CategoryEntityId = categoryId,
+                    IncludeInEstimates = true,
                 };
                 appContext.CategoryItems.Add(categoryItem);
+                appContext.Categories.Find(categoryId).Categories.Add(categoryItem);
                 appContext.SaveChanges();
                 return true;
             }
@@ -74,8 +80,9 @@ namespace ProjektPO.Models
 
             if (appContext.Categories.Where( c => c.UserEntityId == userId).Any( c => c.Id == categoryId))
             {
-                var deletedCategoryItems = appContext.CategoryItems.Where(c => c.CategoryEntityId == categoryId).ToList();MessageBox.Show(deletedCategoryItems.Count().ToString());
+                var deletedCategoryItems = appContext.CategoryItems.Where(c => c.CategoryEntityId == categoryId).ToList();
                 foreach(var item in deletedCategoryItems)
+<<<<<<< HEAD
                 {
                     
 
@@ -83,6 +90,10 @@ namespace ProjektPO.Models
 
                     DeleteCategoryItem(item.Name, userId);
 
+=======
+                {                    
+                    DeleteCategoryItem(item.Name, categoryId, userId);
+>>>>>>> origin/Wojciech_Skwarun
                 }
                 appContext.SaveChanges();
                 var deletedCategory = appContext.Categories.Where(c => c.UserEntityId == userId).FirstOrDefault( c => c.Id == categoryId);
@@ -97,6 +108,7 @@ namespace ProjektPO.Models
                 
         }
 
+<<<<<<< HEAD
 
         public bool DeleteCategoryItem(string categoryItemName, int userId)
         {
@@ -104,6 +116,18 @@ namespace ProjektPO.Models
             {
                 var deletedCategoryItem = appContext.CategoryItems.FirstOrDefault(u => u.UserEntityId == userId && u.Name == categoryItemName);
 
+=======
+        public bool DeleteCategoryItem(string categoryItemName, int categoryId, int userId)
+        {
+            if(appContext.CategoryItems.Where( u => u.UserEntityId == userId).Any( i => i.Name == categoryItemName))
+            {
+                var deletedCategoryItem = appContext.CategoryItems.FirstOrDefault(u => (u.UserEntityId == userId) && (u.Name == categoryItemName) && (u.CategoryEntityId == categoryId));
+                var operationsToDelete = appContext.Operations.Where(x => x.UserEntityId == userId && x.CategoryItemEntityId == deletedCategoryItem.Id).ToList();
+                foreach (var operation in operationsToDelete)
+                {
+                    appContext.Operations.Remove(operation);
+                }
+>>>>>>> origin/Wojciech_Skwarun
                 appContext.CategoryItems.Remove(deletedCategoryItem);
                 appContext.SaveChanges();
                 return true;
@@ -114,14 +138,14 @@ namespace ProjektPO.Models
             }
         }
 
-        public bool EditCategory(CategoryViewModel categoryViewModel, int userId)
+        public bool EditCategory(CategoryViewModel categoryViewModel, string newName, int userId)
         {
-            /*if (categoryViewModel != null &&
+            if (categoryViewModel != null &&
                !string.IsNullOrEmpty(categoryViewModel.Name) &&
-               appContext.Categories.Where(u => u.UserEntityId == userId).Any(i => i.Id == categoryViewModel.Id))
+               appContext.Categories.FirstOrDefault(u => u.UserEntityId == userId && u.Name == newName) == null)
             {
-                var editedCategory = appContext.Categories.Find(categoryViewModel.Id);
-                editedCategory.Name = categoryViewModel.Name;
+                var editedCategory = appContext.Categories.FirstOrDefault(u => u.Name == categoryViewModel.Name);
+                editedCategory.Name = newName;
                 appContext.SaveChanges();
                 return true;
             }
@@ -129,9 +153,6 @@ namespace ProjektPO.Models
             {
                 return false;
             }
-
-            */
-            return true;
         }
 
         public CategoryViewModel ReadCategory(string categoryName, int userId)
@@ -166,6 +187,7 @@ namespace ProjektPO.Models
             {
                 var categoryViewModel = new CategoryItemViewModel()
                 {
+                    Id = entity.Id,
                     CategoryId = entity.CategoryEntityId,
                     Name = entity.Name,
 

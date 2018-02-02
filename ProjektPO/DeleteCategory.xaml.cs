@@ -1,5 +1,6 @@
 ﻿using ProjektPO.Entity;
 using ProjektPO.Models;
+using ProjektPO.Model;
 using ProjektPO.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -25,33 +26,37 @@ namespace ProjektPO
         public DeleteCategory()
         {
             InitializeComponent();
-            var _context = new ApplicationDB();
-            List<string> CategoryNames = new List<string>();
-            var categories_ = _context.Categories.ToList();
-            foreach (var category in categories_)
+            UserModel userModel = new UserModel();
+            List<string> categoryNames = new List<string>();
+            List<CategoryViewModel> categoryViewModels = userModel.UserCategories((int)App.Current.Properties["loggedUserID"]);
+            foreach (var categoryViewModel in categoryViewModels)
             {
-                CategoryNames.Add(category.Name);
+                categoryNames.Add(categoryViewModel.Name);
             }
-            categories.ItemsSource = CategoryNames;
+            categories.ItemsSource = categoryNames;
         }
 
         private void ConfirmClick(object sender, RoutedEventArgs e)
-        {
-            var category = categories.SelectedValue.ToString();
-            if (!String.IsNullOrEmpty(category))
+        {          
+            if (categories.SelectedValue != null)
             {
+                var category = categories.SelectedValue.ToString();
                 var categoryModel = new CategoryModel();
                 var category_ = categoryModel.ReadCategory(category, (int)App.Current.Properties["loggedUserID"]);
                 categoryModel.DeleteCategory(category_.Id, (int)App.Current.Properties["loggedUserID"]);
                 MessageBox.Show("Selected category was removed.", "Confirmation", MessageBoxButton.OK);
-                var _context = new ApplicationDB();
-                List<string> CategoryNames = new List<string>();
-                var categories_ = _context.Categories.ToList();
-                foreach (var cat in categories_)
+                List<string> categoryNames = new List<string>();
+                UserModel userModel = new UserModel();
+                List<CategoryViewModel> categoryViewModels = userModel.UserCategories((int)App.Current.Properties["loggedUserID"]);
+                foreach (var categoryViewModel in categoryViewModels)
                 {
-                    CategoryNames.Add(cat.Name);
+                    categoryNames.Add(categoryViewModel.Name);
                 }
-                categories.ItemsSource = CategoryNames;
+                categories.ItemsSource = categoryNames;
+            }
+            else
+            {
+                MessageBox.Show("No category has been selected.", "Error", MessageBoxButton.OK);
             }
         }
 
@@ -67,7 +72,5 @@ namespace ProjektPO
             this.Owner = null;
             ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = true;
         }
-
     }
-
 }
