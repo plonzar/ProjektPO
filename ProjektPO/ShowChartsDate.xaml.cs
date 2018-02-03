@@ -61,7 +61,11 @@ namespace ProjektPO
                 StatisticsModel statisticsModel = new StatisticsModel();
 
                 var listPieIncome = statisticsModel.GetIncomeForDiagram(datetime1, datetime2, categoryId, userId);
+<<<<<<< HEAD
                 foreach(var item in listPieIncome)
+=======
+                foreach (var item in listPieIncome)
+>>>>>>> c704945334274382b30c89018fbdffa4eb9de0e9
                 {
                     charts.diagram_przychody.AddPoint(item.Label, (double)item.Value);
                 }
@@ -71,6 +75,7 @@ namespace ProjektPO
                 {
                     charts.diagram_wydatki.AddPoint(item.Label, (double)item.Value);
                 }
+<<<<<<< HEAD
 
                 var listLinearIncome = statisticsModel.GetLinearIncome(datetime1, datetime2, categoryId, userId);
                 foreach(var item in listLinearIncome)
@@ -78,19 +83,38 @@ namespace ProjektPO
                     charts.liniowy_przychody.AddPoint(item.X, (double)item.Y);
                 }
 
+=======
+                charts.liniowy_przychody.AddPoint(0, 0);
+                var listLinearIncome = statisticsModel.GetLinearIncome(datetime1, datetime2, categoryId, userId);
+                foreach (var item in listLinearIncome)
+                {
+                    charts.liniowy_przychody.AddPoint(item.X, (double)item.Y);
+                }
+                charts.liniowy_wydatki.AddPoint(0, 0);
+>>>>>>> c704945334274382b30c89018fbdffa4eb9de0e9
                 var listLinearOutcome = statisticsModel.GetLinearOutcome(datetime1, datetime2, categoryId, userId);
                 foreach (var item in listLinearOutcome)
                 {
                     charts.liniowy_wydatki.AddPoint(item.X, (double)item.Y);
                 }
 
+<<<<<<< HEAD
+=======
+                charts.liniowy_profit.AddPoint(0, 0);
+>>>>>>> c704945334274382b30c89018fbdffa4eb9de0e9
                 var listLinearProfit = statisticsModel.GetLinearProfit(datetime1, datetime2, categoryId, userId);
                 foreach (var item in listLinearProfit)
                 {
                     charts.liniowy_profit.AddPoint(item.X, (double)item.Y);
                 }
+<<<<<<< HEAD
                 
                 charts.Show();
+=======
+
+                charts.Show();
+
+>>>>>>> c704945334274382b30c89018fbdffa4eb9de0e9
                 this.Close();
                 ((SecondaryWindow)App.Current.Properties["SecondaryWindow"]).IsEnabled = true;
             }

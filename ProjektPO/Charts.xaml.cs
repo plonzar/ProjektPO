@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 ﻿using ProjektPO.Models;
 using ProjektPO.Model;
 using System;
+=======
+﻿using System;
+>>>>>>> c704945334274382b30c89018fbdffa4eb9de0e9
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +25,17 @@ namespace ProjektPO
     /// </summary>
     public partial class Charts : Window
     {
+<<<<<<< HEAD
         ShowChartsDate sqq = new ShowChartsDate();
         
         public Charts()
         {
             InitializeComponent();            
+=======
+        public Charts()
+        {
+            InitializeComponent();
+>>>>>>> c704945334274382b30c89018fbdffa4eb9de0e9
         }
     }
 }
