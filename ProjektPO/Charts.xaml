@@ -1,0 +1,53 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektPO"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" x:Class="ProjektPO.Charts"
+        mc:Ignorable="d"
+        Title="Charts" Height="600" Width="700">
+    <Grid>
+        <dxc:ChartControl HorizontalAlignment = "Left" Height="240" VerticalAlignment="Top" Width="666">
+            <dxc:ChartControl.Legends>
+                <dxc:Legend MarkerMode = "CheckBoxAndMarker" Margin="0,-40.2,0,39.6" Orientation="Horizontal" HorizontalPosition="Center"/>
+            </dxc:ChartControl.Legends>
+            <dxc:XYDiagram2D Margin = "0,21,0,-0.2" >
+                <dxc:XYDiagram2D.AxisY>
+                    <dxc:AxisY2D GridLinesMinorVisible = "True" >
+                        <dxc:AxisY2D.Title>
+                            <dxc:AxisTitle Content = "Kwota" Visible="True"/>
+                        </dxc:AxisY2D.Title>
+                    </dxc:AxisY2D>
+                </dxc:XYDiagram2D.AxisY>
+                <dxc:XYDiagram2D.AxisX>
+                    <dxc:AxisX2D Reverse = "False" Logarithmic="False" GridLinesVisible="True" GridLinesMinorVisible="True" Interlaced="True">
+                        <dxc:AxisX2D.Title>
+                            <dxc:AxisTitle Content = "Czas" Visible="True"/>
+                        </dxc:AxisX2D.Title>
+                    </dxc:AxisX2D>
+                </dxc:XYDiagram2D.AxisX>
+                <dxc:LineSeries2D DisplayName = "Przychody" x:Name="liniowy_przychody">
+                </dxc:LineSeries2D>
+                <dxc:LineSeries2D DisplayName = "Wydatki" x:Name="liniowy_wydatki">
+                </dxc:LineSeries2D>
+                <dxc:LineSeries2D DisplayName = "Profit" x:Name="liniowy_profit">
+                </dxc:LineSeries2D>
+            </dxc:XYDiagram2D>
+        </dxc:ChartControl>
+        <dxc:ChartControl HorizontalAlignment = "Left" Height="267" Margin="0,223,0,0" VerticalAlignment="Top" Width="666" AnimationMode="Disabled" RenderTransformOrigin="0.504,0.615" AutoLayout="False" Palette="{x:Null}">
+            <dxc:ChartControl.Legends>
+                <dxc:Legend HorizontalPosition = "Right" VerticalPosition="Top" MarkerMode="CheckBox" Margin="0,-47.2,0,47.6"/>
+            </dxc:ChartControl.Legends>
+            <dxc:SimpleDiagram3D LayoutDirection = "Horizontal" RuntimeRotation="True" RuntimeScrolling="True" RuntimeZooming="True" ZoomPercent="180" PerspectiveAngle="120" Dimension="3" Margin="0,41,0,-9"  Width="628">
+                <dxc:PieSeries3D DisplayName = "Przychody" LabelsVisibility="True"  x:Name="diagram_przychody">
+                    <dxc:SeriesPoint Argument = "Przychod" Value="1"/>
+                </dxc:PieSeries3D>
+                <dxc:PieSeries3D DisplayName = "Wydatki" LabelsVisibility="True" x:Name="diagram_wydatki">
+                    <dxc:SeriesPoint Argument = "Wydatki" Value="1"/>
+                </dxc:PieSeries3D>
+            </dxc:SimpleDiagram3D>
+        </dxc:ChartControl>
+
+    </Grid>
+</Window>
